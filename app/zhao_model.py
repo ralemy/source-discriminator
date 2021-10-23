@@ -154,7 +154,7 @@ class ZhaoModel:
         
         round=0
         while True:
-            self.log('updating discriminator', 'epoch', epoch, 'round', round++)
+            self.log('updating discriminator', 'epoch', epoch, 'round', round)
             self.update_model(self.discriminator, tape, v_i, 'max')
             with tf.GradientTape(persistent=True) as disc_tape:
                 l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
@@ -162,6 +162,7 @@ class ZhaoModel:
             if l_d <= self.h_subject:
                 break
             tape=disc_tape
+            round+=1
 
         self.tboard.update_loss('global', v_i)
         self.tboard.update_accuracy('global', subjects, q_d)
