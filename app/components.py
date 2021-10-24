@@ -1,10 +1,9 @@
-import imp
-import pandas as pd
+
 import tensorflow as tf
-from tensorflow.keras import initializers, regularizers, Model
+from tensorflow.keras import initializers, Model
 from tensorflow.keras.layers import Dense, BatchNormalization,Dropout, LeakyReLU
 
-from contrib import ResNetTypeII
+from app.contrib import ResNetTypeII
 
 class Encoder(ResNetTypeII):
     def __init__(self):
@@ -21,7 +20,7 @@ class Predictor(Model):
         self.dropout = Dropout(0.3)
         self.Dense2 = Dense(1, activation='sigmoid')
 
-def call(self, inputs, training = None, **kwargs):
+    def call(self, inputs, training = None, **kwargs):
         x = self.Dense1(inputs)
         x = self.bn1(x)
         x = self.leaky(x)

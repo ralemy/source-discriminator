@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from datetime import datetime 
 from sklearn.preprocessing import LabelEncoder
-from utils import loggable,INDEV
+from app.utils import loggable,INDEV
 
 
 class FeatureException(Exception):
@@ -27,7 +27,8 @@ class FeatureEngineer:
         ''' initializes the engineer class with the address to the root of data and sets the feature set name and timestamp'''
         self.file_locator = file_locator
         self.features = None 
-        self.data_dim = None
+        self.rows = None
+        self.cols = None
         self.timestamp = int(datetime.now().timestamp())
         self.feature_set_name = feature_set_name
         self.silent = not INDEV
@@ -73,7 +74,8 @@ class FeatureEngineer:
                 matrix = np.array([[float(v) for v in line.strip().split(',')] for line in f.readlines()])
             return inline,matrix,matrix.shape[0],matrix.shape[1]
         self.features[['InlineTag','Matrix','Rows','Columns']] = self.features.apply(read_matrix, axis=1, result_type='expand')
-        self.data_dim = (self.features.loc[0]['Rows'], self.features.loc[0]['Columns'])
+        self.rows = self.features.loc[0]['Rows']
+        self.cols = self.features.loc[0]['Columns']
 
     def assert_data(self, training=True):
         df = self.features
@@ -88,7 +90,7 @@ class FeatureEngineer:
         if training:
             self.features.drop(['Tag', 'Source'], axis=1, inplace=True)
         
-        self.features['Matrix'] = self.features['Matrix'].apply(lambda x: (x-np.min(x))/np.ptp(x))
+        self.features['Matrix'] = self.features['Matrix'].apply(lambda x: ((x-np.min(x))/np.ptp(x)).tolist())
 
     def split(self, train, test=None, val=None):
         probs = np.random.rand(len(self.features))
@@ -125,7 +127,11 @@ class FeatureEngineer:
         self.log('Pickling the feature set')
         self.features.to_pickle(os.path.join(destination, 'features.pickle'), compression=None)
         self.log('Pickling the config')
-        pd.to_pickle({'timestamp': self.timestamp, 'dims': self.data_dim, 'set_name': self.feature_set_name }, os.path.join(destination, 'config.pickle'))
+        pd.to_pickle({'timestamp': self.timestamp,
+                        'rows': self.rows, 
+                        'cols': self.cols, 
+                        'set_name': self.feature_set_name 
+                    }, os.path.join(destination, 'config.pickle'))
 
     def load_feature_set(self, destination):
         self.log('reading the feature set')
@@ -133,7 +139,8 @@ class FeatureEngineer:
         self.log('reading the config')
         config = pd.read_pickle(os.path.join(destination, 'config.pickle'))
         self.timestamp = config['timestamp']
-        self.data_dim = config['dims']
+        self.rows = config['rows']
+        self.cols = config['cols']
         self.feature_set_name = config['set_name']
 
     def get_id(self):

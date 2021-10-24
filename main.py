@@ -8,13 +8,13 @@
 
 import argparse
 import configparser
-from app.model import ZhaoModel
+from app.zhao_model import ZhaoModel
 from app.plot import plot_components
 
 def init_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', '--action', choices=['train', 'predict'], required=True)
-    parser.add_argument('-t', '--target', action='store', help='Path to config file for trainig or prediction', required=True)
+    parser.add_argument('-t', '--config', action='store', help='Path to config file for trainig or prediction', required=True)
     return parser
 
 def read_config(file_path, action):
@@ -33,8 +33,7 @@ def report_metrics(metrics):
 if __name__=='__main__':
     parser = init_args()
     args = parser.parse_args()
-    print(args)
-    config = read_config(args.target, args.action.upper())
+    config = read_config(args.config, args.action.upper())
     options = {k:config[k] for k in config}
     if args.action.upper() == 'TRAIN':
         model = ZhaoModel(options)
