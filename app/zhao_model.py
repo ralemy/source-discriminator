@@ -159,7 +159,7 @@ class ZhaoModel:
             self.tmetrics.reset_epoch_metrics()
             for index, (data, labels, subjects) in enumerate(train_set.take(train_step)):
                 self.run_step(epoch, data, labels, subjects, index)
-            self.log('epoch', epoch, 'done. validating....')
+            self.log('done. validating....')
             for data, labels, _ in val_set.take(val_step):
                 self.test_step(data, labels)
             epoch_acc = self.tmetrics.report_epoch(epoch)
@@ -167,6 +167,8 @@ class ZhaoModel:
                 self.checkpoint.save(file_prefix=os.path.join(self.checkpoint_path, 'check_point.ckpt'))
                 max_acc = epoch_acc
                 self.log('Best Accuracy so far', max_acc)
+            else:
+                self.log('accuracy', epoch_acc, 'best_accuracy', max_acc)
     
     # Here starts the implementation of the alogorithm
     #  Matched to Algorithm on page 6 reference article
