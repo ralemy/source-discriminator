@@ -173,7 +173,8 @@ class ZhaoModel:
             old_w4 = w4
             old_w2 = w2
             for vd, vl, _ in val_set.take(val_step):
-                self.test_step(vd, vl)
+                w5,w6 = self.test_step(vd, vl)
+            self.debug('test weights', self.is_equal(w2 , w5), self.is_equal(w4 , w6))
             epoch_acc = self.tmetrics.report_epoch(epoch)
             self.debug('test_acc_after_val', self.tmetrics.metrics['accuracy']['test'].result())
             if max_acc < epoch_acc:
@@ -233,7 +234,8 @@ class ZhaoModel:
         self.tmetrics.update_loss('test', loss)
         self.tmetrics.update_accuracy('test', expected, predictions)
         self.debug('test_acc_in_step', self.tmetrics.metrics['accuracy']['test'].result(), loss)
-        return enc_actual
+        return (self.encoder.get_weights(), self.predictor.get_weights())
+#        return enc_actual 
         
     def get_disc_loss(self, subjects, enc_output, pred_output):
         '''get the loss of discriminator afte conditioning with predictor output'''
