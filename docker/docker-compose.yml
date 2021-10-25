@@ -1,0 +1,15 @@
+version: "3"
+
+services: 
+  tensorflow: 
+    build: ./container
+    command: "tail -f /dev/null"
+    deploy: 
+      resources: 
+        reservations: 
+          devices: 
+            - capabilities: [gpu]
+    image: "zhao:v1"
+    volumes: 
+      - "$PWD/persist:/opt"
+

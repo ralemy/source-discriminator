@@ -20,7 +20,7 @@ class Plotter:
         os.mkdir(self.plot_path)
         self.log('data preparing')
 
-        self.df = pd.DataFrame({'labels': labels})
+        self.df = pd.DataFrame({'labels': labels[:enc_output.shape[0]]})
         self.log('Reduce dimensionality')
         self.determine_components(enc_output)
         self.log('2 Comp plot')
