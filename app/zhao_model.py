@@ -187,7 +187,7 @@ class ZhaoModel:
         # with tf.GradientTape() as d_tape:
         #     l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
         #     v_i  = l_p - (self.loss_lambda * l_d)
-            v_i = l_p - (self.loss_lambda * l_d)
+            v_i = l_p
         
 
         self.update_model(self.encoder, tape, v_i)
