@@ -155,7 +155,7 @@ class ZhaoModel:
     def is_equal(self, a,b):
         for x,y in zip(a,b):
             if type(x) is list:
-                r = self.is_equal(x,y):
+                r = self.is_equal(x,y)
                 if r == True:
                     continue
                 return r
