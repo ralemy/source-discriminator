@@ -237,7 +237,7 @@ class ZhaoModel:
         predictions = self.predictor(enc_actual, training=False)
         if not training:
             return predictions
-        loss = self.loss_obj(expected.reshape(1,), predictions)
+        loss = self.loss_obj(expected, predictions)
         self.tmetrics.update_loss('test', loss)
         self.tmetrics.update_accuracy('test', expected, predictions)
         self.debug('test_acc_in_step', self.tmetrics.metrics['accuracy']['test'].result(), loss)
