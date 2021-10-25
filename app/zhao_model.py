@@ -139,9 +139,11 @@ class ZhaoModel:
         acc.reset_states()
         steps = df.shape[0] // self.batch_size
         data_set = self.get_data_set(df, self.batch_size, False)
+        feature_set = None
         for data,label,_ in data_set.take(steps):
-            self.test_step(data, label)
-        
+            features = self.test_step(data, label).numpy()
+        self.log('features', features.shape, features[0])
+        return features
 
     # Here starts the training loop. the run_epochs function 
     # Is not responsible for algorithm implementation details
