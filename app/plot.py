@@ -80,8 +80,8 @@ class Plotter:
         pca = PCA(n_components=3)
         result_pca = pca.fit_transform(enc_output)
         df['pca-1'] = result_pca[:, 0]
-        df['pca-2'] = result_pca[:, 2]
-        df['pca-3'] = result_pca[:, 3]
+        df['pca-2'] = result_pca[:, 1]
+        df['pca-3'] = result_pca[:, 2]
         self.log('Explained variation per PC', pca.explained_variance_ratio_)
         self.log('t-SNE calculation')
         tsne = TSNE(n_components=2, verbose=1, perplexity=40, n_iter=300)
