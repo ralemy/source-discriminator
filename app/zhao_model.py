@@ -182,7 +182,7 @@ class ZhaoModel:
             l_p = self.loss_obj(labels, w_i) 
             di = tf.concat([w_i, e_x], 1)
             q_d = self.discriminator(di, training=True)
-            l_d = self.loss_obj(subjects, q_d), q_d
+            l_d = self.loss_obj(subjects, q_d)
 
         # with tf.GradientTape() as d_tape:
         #     l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
