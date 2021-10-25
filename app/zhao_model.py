@@ -241,7 +241,9 @@ class ZhaoModel:
         self.tmetrics.update_loss('test', loss)
         self.tmetrics.update_accuracy('test', expected, predictions)
         self.debug('test_acc_in_step', self.tmetrics.metrics['accuracy']['test'].result(), loss)
-        return (self.encoder.get_weights(), self.predictor.get_weights(), predictions.numpy())
+        pp=predictions.numpy()
+        self.debug('pred/expected', pp, expected)
+        return (self.encoder.get_weights(), self.predictor.get_weights(), pp)
 #        return enc_actual 
         
     def get_disc_loss(self, subjects, enc_output, pred_output):
