@@ -74,6 +74,7 @@ class ZhaoModel:
         self.log('running epochs')
         self.run_epochs(train_set, val_set, train_size // self.batch_size, val_df.shape[0]//self.batch_size)
         self.checkpoint.restore(tf.train.latest_checkpoint(self.checkpoint_path))
+        self.log('gathering final results')
         return self.final_results()
 
     def get_feature_set(self, training=True):

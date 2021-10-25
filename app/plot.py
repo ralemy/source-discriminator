@@ -36,7 +36,7 @@ class Plotter:
         ax1.set_title('PCA, 2 components')
         sns.scatterplot(
             x="pca-1", y="pca-2", hue="labels",
-            palette=sns.color_palette("hls", 10),
+            palette=sns.color_palette("hls", as_cmap=True),
             data=self.df,
             legend="full",
             alpha=0.3,
@@ -47,7 +47,7 @@ class Plotter:
         ax2.set_title('tSNE, 2 components')
         sns.scatterplot(
             x="tsne-1", y="tsne-2", hue="labels",
-            palette=sns.color_palette("hls", 10),
+            palette=sns.color_palette("hls", as_cmap=True),
             data=self.df,
             legend="full",
             alpha=0.3,
