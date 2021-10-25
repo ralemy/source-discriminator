@@ -207,6 +207,7 @@ class ZhaoModel:
             v_i = l_p
         
         w1 = self.encoder.get_weights()
+        self.debug('w1', type(w1), type(w1[0]))
         self.update_model(self.encoder, tape, v_i)
         w2 = self.encoder.get_weights()
         self.debug('encoder weights', self.is_equal(w1,w2))
