@@ -176,33 +176,35 @@ class ZhaoModel:
     #  Matched to Algorithm on page 6 reference article
     def run_step(self, epoch, data, labels, subjects, index):
         ''' update encoder, predictor, and discriminator'''
-        with tf.GradientTape(persistent=True) as tape:
+        with tf.GradientTape() as tape:
             e_x = self.encoder(data, training=True)
             w_i = self.predictor(e_x, training=False)
             l_p = self.loss_obj(labels, w_i) 
 
-        with tf.GradientTape() as d_tape:
-            l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
-            v_i  = l_p - (self.loss_lambda * l_d)
+        # with tf.GradientTape() as d_tape:
+        #     l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
+        #     v_i  = l_p - (self.loss_lambda * l_d)
+            v_i = l_p
+        
 
         self.update_model(self.encoder, tape, v_i)
         self.update_model(self.predictor, tape, v_i)
 
-        round=0
-        while True:
-            self.update_model(self.discriminator, d_tape, v_i, 'max')
-            with tf.GradientTape() as disc_tape:
-                l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
-                v_i = l_p - self.loss_lambda * l_d
-            if l_d <= self.h_subject:
-                break
-            d_tape=disc_tape
-            round+=1
+        # round=0
+        # while True:
+        #     self.update_model(self.discriminator, d_tape, v_i, 'max')
+        #     with tf.GradientTape() as disc_tape:
+        #         l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
+        #         v_i = l_p - self.loss_lambda * l_d
+        #     if l_d <= self.h_subject:
+        #         break
+        #     d_tape=disc_tape
+        #     round+=1
         if index % 20 == 0:
             self.log('batch', index)        
 
-        self.tmetrics.update_loss('global', v_i)
-        self.tmetrics.update_accuracy('global', subjects, q_d)
+        # self.tmetrics.update_loss('global', v_i)
+        # self.tmetrics.update_accuracy('global', subjects, q_d)
         self.tmetrics.update_loss('train', l_p)
         self.tmetrics.update_accuracy('train', labels, w_i)
 
