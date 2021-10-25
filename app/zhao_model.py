@@ -200,7 +200,7 @@ class ZhaoModel:
 
     def test_step(self, values, expected, training=True):
         enc_actual = self.encoder(values, training=False)
-        predictions = self.Predictor(enc_actual, training=False)
+        predictions = self.predictor(enc_actual, training=False)
         if not training:
             return predictions
         loss = self.loss_obj(predictions, expected)
