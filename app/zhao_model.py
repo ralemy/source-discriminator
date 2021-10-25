@@ -181,6 +181,7 @@ class ZhaoModel:
             w_i = self.predictor(e_x, training=False)
             l_p = self.loss_obj(labels, w_i) 
 
+        with tf.GradientTape(persistent=True) as d_tape:
             l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
             v_i  = l_p - (self.loss_lambda * l_d)
 
@@ -188,13 +189,13 @@ class ZhaoModel:
         self.update_model(self.predictor, tape, v_i)
         round=0
         while True:
-            self.update_model(self.discriminator, tape, v_i, 'max')
+            self.update_model(self.discriminator, d_tape, v_i, 'max')
             with tf.GradientTape(persistent=True) as disc_tape:
                 l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
                 v_i = l_p - self.loss_lambda * l_d
             if l_d <= self.h_subject:
                 break
-            tape=disc_tape
+            d_tape=disc_tape
             round+=1
         if index % 20 == 0:
             self.log('batch', index)        
