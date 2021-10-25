@@ -176,7 +176,7 @@ class ZhaoModel:
     #  Matched to Algorithm on page 6 reference article
     def run_step(self, epoch, data, labels, subjects, index):
         ''' update encoder, predictor, and discriminator'''
-        with tf.GradientTape() as tape:
+        with tf.GradientTape(persistent=True) as tape:
             e_x = self.encoder(data, training=True)
             w_i = self.predictor(e_x, training=False)
             l_p = self.loss_obj(labels, w_i) 
@@ -189,7 +189,7 @@ class ZhaoModel:
 
         self.update_model(self.encoder, tape, v_i)
         self.update_model(self.predictor, tape, v_i)
-
+        self.update_model(self.discriminator, tape, v_i, 'max')
         # round=0
         # while True:
         #     self.update_model(self.discriminator, d_tape, v_i, 'max')
