@@ -155,7 +155,7 @@ class ZhaoModel:
     def is_equal(self, a,b):
         for x,y in zip(a,b):
             if not np.all(x == y):
-                 return (False ,x , y)
+                 return False
         return True
 
     def run_epochs(self, train_set, val_set, train_step, val_step):
@@ -169,10 +169,9 @@ class ZhaoModel:
                 w2, w4 = self.run_step(epoch, data, labels, subjects, index)
             self.log('done. validating....')
             if index > 0: 
-                self.debug('prev weights', self.is_equal(w2 , old_w2), self.is_equal(w4 . old_w4))
+                self.debug('prev weights', self.is_equal(w2 , old_w2), self.is_equal(w4 , old_w4))
             old_w4 = w4
             old_w2 = w2
-            self.debug('test_acc_before_val', self.tmetrics.metrics['accuracy']['test'].result())
             for vd, vl, _ in val_set.take(val_step):
                 self.test_step(vd, vl)
             epoch_acc = self.tmetrics.report_epoch(epoch)
@@ -201,14 +200,10 @@ class ZhaoModel:
         #     v_i  = l_p - (self.loss_lambda * l_d)
             v_i = l_p
         
-        w1 = self.encoder.get_weights()
         self.update_model(self.encoder, tape, v_i)
         w2 = self.encoder.get_weights()
-        self.debug('encoder weights', self.is_equal(w1,w2))
-        w3 = self.predictor.get_weights()
         self.update_model(self.predictor, tape, v_i)
         w4 = self.predictor.get_weights()
-        self.debug('predictor weights', self.is_equal(w3 ,w4))
         # self.update_model(self.discriminator, tape, l_d, 'max')
         # round=0
         # while True:
