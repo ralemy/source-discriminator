@@ -14,10 +14,10 @@ class Predictor(Model):
     def __init__(self):
         super(Predictor, self).__init__()
         initializer = initializers.HeNormal()
-        self.Dense1 = Dense(16, activation='linear', 
+        self.Dense1 = Dense(16, activation='relu', 
                                     kernel_initializer=initializer)
-        self.bn1 = BatchNormalization()
-        self.leaky = LeakyReLU(alpha=0.2)
+        # self.bn1 = BatchNormalization()
+        # self.leaky = LeakyReLU(alpha=0.2)
         self.dropout = Dropout(0.3)
         self.Dense2 = Dense(1, activation='sigmoid')
 
