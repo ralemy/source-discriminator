@@ -198,11 +198,11 @@ class ZhaoModel:
         w1 = self.encoder.get_weights()
         self.update_model(self.encoder, tape, v_i)
         w2 = self.encoder.get_weights()
-        self.debug('encoder weights', np.all(w1 == w2))
+        self.debug('encoder weights', w1.shape , type(w1))
         w3 = self.predictor.get_weights()
         self.update_model(self.predictor, tape, v_i)
         w4 = self.predictor.get_weights()
-        self.debug('predictor weights', np.all(w1 == w2))
+        self.debug('predictor weights', np.all(w1 - w2))
         # self.update_model(self.discriminator, tape, l_d, 'max')
         # round=0
         # while True:
