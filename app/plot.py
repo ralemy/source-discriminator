@@ -13,7 +13,7 @@ class Plotter:
     def __init__(self, options) -> None:
         plot_path = '../plots' if 'plot_path' not in options else options['plot_path']
         self.session_id = datetime.now().strftime('%Y-%m-%d_%H_%M_%s')
-        self.plot_path = os.path.join(plot_path, session_id)
+        self.plot_path = os.path.join(plot_path, self.session_id)
         self.df = None
 
     def plot_components(self, enc_output, labels):
