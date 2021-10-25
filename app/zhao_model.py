@@ -183,7 +183,7 @@ class ZhaoModel:
 
             l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
             v_i  = l_p - (self.loss_lambda * l_d)
-        self.debug('encoder loss', l_p, 'descriminator_loss', l_d)
+
         self.update_model(self.encoder, tape, v_i)
         self.update_model(self.predictor, tape, v_i)
         round=0
