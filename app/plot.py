@@ -20,7 +20,7 @@ class Plotter:
         os.mkdir(self.plot_path)
         self.log('data preparing')
 
-        self.df = pd.DataFrame({'encodings':enc_output, 'labels': labels})
+        self.df = pd.DataFrame({'labels': labels})
         self.log('Reduce dimensionality')
         self.determine_components(enc_output)
         self.log('2 Comp plot')
@@ -58,18 +58,20 @@ class Plotter:
     def three_component_plot(self):
         df = self.df
         rndperm = np.random.permutation(df.shape[0])
+        colors = {0:'tab:blue', 1:'tab:orange'}
         ax = plt.figure(figsize=(16,10)).gca(projection='3d')
         ax.set_title('PCA, 3 components')
         ax.scatter(
             xs=df.loc[rndperm,:]["pca-1"], 
             ys=df.loc[rndperm,:]["pca-2"], 
             zs=df.loc[rndperm,:]["pca-3"], 
-            c=df.loc[rndperm,:]["labels"], 
+            c=df.loc[rndperm,:]["labels"].map(colors), 
             cmap='tab10'
         )
         ax.set_xlabel('pca-one')
         ax.set_ylabel('pca-two')
         ax.set_zlabel('pca-three') 
+        
         plt.savefig(os.path.join(self.plot_path, 'two_component_plot.png'))
 
     def determine_components(self, enc_output):
