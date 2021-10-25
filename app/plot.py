@@ -72,7 +72,7 @@ class Plotter:
         ax.set_ylabel('pca-two')
         ax.set_zlabel('pca-three') 
         
-        plt.savefig(os.path.join(self.plot_path, 'two_component_plot.png'))
+        plt.savefig(os.path.join(self.plot_path, 'three_component_plot.png'))
 
     def determine_components(self, enc_output):
         df = self.df

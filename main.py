@@ -40,6 +40,7 @@ if __name__=='__main__':
         model = ZhaoModel(options)
         metrics = model.train(0.8, 0.1, 0.1)
         report_metrics(metrics, options)
+        model.log('training complete')
     elif args.action.upper() == 'PREDICT':
         model = ZhaoModel(options)
         model.predict()
