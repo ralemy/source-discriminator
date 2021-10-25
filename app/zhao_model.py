@@ -176,7 +176,7 @@ class ZhaoModel:
             for vd, vl, _ in val_set.take(val_step):
                 w5,w6, pred = self.test_step(vd, vl)
             if epoch > 0:
-                self.debug('Predictions', type(pred))
+                self.debug('Predictions', np.all(pred==old_pred))
             old_pred = pred
             self.debug('test weights', self.is_equal(w2 , w5), self.is_equal(w4 , w6))
             epoch_acc = self.tmetrics.report_epoch(epoch)
@@ -241,7 +241,7 @@ class ZhaoModel:
         self.tmetrics.update_loss('test', loss)
         self.tmetrics.update_accuracy('test', expected, predictions)
         self.debug('test_acc_in_step', self.tmetrics.metrics['accuracy']['test'].result(), loss)
-        return (self.encoder.get_weights(), self.predictor.get_weights(), predictions)
+        return (self.encoder.get_weights(), self.predictor.get_weights(), predictions.numpy())
 #        return enc_actual 
         
     def get_disc_loss(self, subjects, enc_output, pred_output):
