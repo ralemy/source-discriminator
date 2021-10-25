@@ -42,7 +42,7 @@ class ZhaoModel:
         self.encoder = Encoder()
         self.discriminator = Discriminator()
         self.predictor = Predictor()
-        self.loss_obj = losses.BinaryCrossentropy(from_logits= True, reduction=losses.Reduction.SUM_OVER_BATCH_SIZE) 
+        self.loss_obj = losses.BinaryCrossentropy(reduction=losses.Reduction.SUM_OVER_BATCH_SIZE) 
         self.optimizer = optimizers.Adam(learning_rate=self.learning_rate_fn())
         self.checkpoint=tf.train.Checkpoint(encoder=self.encoder, predictor=self.predictor)
         self.h_subject = None # H(s) required by inner loop. will be calculated in training
