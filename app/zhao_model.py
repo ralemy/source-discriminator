@@ -101,7 +101,7 @@ class ZhaoModel:
             fe.get_subject(df).values
         ))
         if shuffle:
-            data_set = data_set.shuffle(size)
+            data_set = data_set.shuffle(size, reshuffle_each_iteration=True)
         return data_set.batch(batch_size)
 
     def learning_rate_fn(self):

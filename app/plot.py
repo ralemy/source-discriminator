@@ -17,7 +17,7 @@ class Plotter:
         self.df = None
 
     def plot_components(self, enc_output, labels):
-        os.mkdirs(self.plot_path)
+        os.mkdir(self.plot_path)
         self.log('data preparing')
 
         self.df = pd.DataFrame({'encodings':enc_output, 'labels': labels})
