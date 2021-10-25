@@ -152,7 +152,7 @@ class ZhaoModel:
     # It just runs each epoch, checks its accuracy and saves the 
     # best one.
 
-    def is_equal(a,b):
+    def is_equal(self, a,b):
         for x,y in zip(a,b):
             if x != y:
                  return (False ,x , y)
