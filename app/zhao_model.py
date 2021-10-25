@@ -129,7 +129,7 @@ class ZhaoModel:
 
     def update_final_metric(self, metrics, df,key):
         loss_metric = self.tmetrics.metrics['loss']['test']
-        acc_metric = self.tmetrics.metrics['loss']['accuracy']
+        acc_metric = self.tmetrics.metrics['accuracy']['test']
         self.final_result(df, loss_metric, acc_metric)
         metrics[key] = {'loss': loss_metric.result(), 'accuracy': acc_metric.result()}
 
