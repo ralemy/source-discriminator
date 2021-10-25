@@ -173,7 +173,7 @@ class ZhaoModel:
             v_i  = l_p - (self.loss_lambda * l_d)
 
         self.update_model(self.encoder, tape, v_i)
-        self.update_model(self.Predictor, tape, v_i)
+        self.update_model(self.predictor, tape, v_i)
         
         round=0
         while True:
