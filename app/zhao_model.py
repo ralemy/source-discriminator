@@ -98,8 +98,8 @@ class ZhaoModel:
         fe = self.feature_set
         data_set = tf.data.Dataset.from_tensor_slices((
             self.reshape_for_cnn(df),
-            fe.get_label(df).values,
-            fe.get_subject(df).values
+            np.expand_dims(fe.get_label(df).values,1), 
+            np.expand_dims(fe.get_subject(df).values,1)
         ))
         if shuffle:
             data_set = data_set.shuffle(size, reshuffle_each_iteration=True)
