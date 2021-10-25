@@ -193,7 +193,7 @@ class ZhaoModel:
             tape=disc_tape
             round+=1
         if index % 20 == 0:
-            self.log('updated models', 'epoch', epoch, 'batch', index)        
+            self.log('batch', index)        
 
         self.tmetrics.update_loss('global', v_i)
         self.tmetrics.update_accuracy('global', subjects, q_d)
