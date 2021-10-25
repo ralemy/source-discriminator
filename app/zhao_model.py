@@ -168,7 +168,7 @@ class ZhaoModel:
             for index, (data, labels, subjects) in enumerate(train_set.take(train_step)):
                 w2, w4 = self.run_step(epoch, data, labels, subjects, index)
             self.log('done. validating....')
-            if index > 0: 
+            if epoch > 0: 
                 self.debug('prev weights', self.is_equal(w2 , old_w2), self.is_equal(w4 , old_w4))
             old_w4 = w4
             old_w2 = w2
