@@ -204,7 +204,7 @@ class ZhaoModel:
         #     l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
         #     v_i  = l_p - (self.loss_lambda * l_d)
             v_i = l_p
-        
+        self.debug('loss predictor', l_p.numpy())
         # self.update_model(self.encoder, tape, v_i)
 #        self.update_model(self.predictor, tape, v_i)
         vars = self.predictor.trainable_variables + self.encoder.trainable_variables
