@@ -153,11 +153,11 @@ class ZhaoModel:
         for epoch in range(self.epochs):
             self.log('epoch', epoch, 'from', self.epochs)
             self.tmetrics.reset_epoch_metrics()
-            for data, labels, subjects in train_set.take(train_step):
-                self.run_step(epoch, data, labels, subjects)
+            for index, (data, labels, subjects) in enumerate(train_set.take(train_step)):
+                self.run_step(epoch, data, labels, subjects, index)
             self.log('epoch', epoch, 'done. validating....')
             for data, labels, _ in val_set.take(val_step):
-                self.test(data, labels)
+                self.test_step(data, labels)
             epoch_acc = self.tmetrics.report_epoch(epoch)
             if max_acc < epoch_acc:
                 self.checkpoint.save(file_prefix=os.path.join(self.checkpoint_path, 'check_point.ckpt'))
@@ -166,7 +166,7 @@ class ZhaoModel:
     
     # Here starts the implementation of the alogorithm
     #  Matched to Algorithm on page 6 reference article
-    def run_step(self, epoch, data, labels, subjects):
+    def run_step(self, epoch, data, labels, subjects, index):
         ''' update encoder, predictor, and discriminator'''
         with tf.GradientTape(persistent=True) as tape:
             e_x = self.encoder(data, training=True)
@@ -178,7 +178,8 @@ class ZhaoModel:
 
         self.update_model(self.encoder, tape, v_i)
         self.update_model(self.predictor, tape, v_i)
-        self.log('updated encoder and predictor', 'epoch', epoch)        
+        if index % 10 == 0:
+            self.log('updated encoder and predictor', 'epoch', epoch, 'batch', index)        
         round=0
         while True:
             self.update_model(self.discriminator, tape, v_i, 'max')
@@ -189,7 +190,8 @@ class ZhaoModel:
                 break
             tape=disc_tape
             round+=1
-        self.log('updated discriminator', 'epoch', epoch, 'round', round)
+        if index % 10 == 0:
+            self.log('updated discriminator', 'epoch', epoch, 'round', round)
 
         self.tmetrics.update_loss('global', v_i)
         self.tmetrics.update_accuracy('global', subjects, q_d)
