@@ -64,12 +64,15 @@ class ZhaoModel:
         fe = self.feature_set
         fe.split(train_frac, test_frac, validation_frac)
         train_df = fe.get_data_set(Role.TRAIN)
+        val_df = fe.get_data_set(Role.VALIDATE)
+
         train_size = train_df.shape[0]
         self.log('reading training set')
         train_set = self.get_data_set(train_df, self.batch_size, True)
+        val_set = self.get_data_set(val_df, self.batch_size, False)
         self.h_subject = self.get_entropy(train_df, 'Subject')
         self.log('running epochs')
-        self.run_epochs(train_set, train_size // self.batch_size)
+        self.run_epochs(train_set, val_set, train_size // self.batch_size, val_df.shape[0]//self.batch_size)
         self.checkpoint.restore(tf.train.latest_checkpoint(self.checkpoint_path))
         return self.final_results()
 
@@ -127,14 +130,17 @@ class ZhaoModel:
     def update_final_metric(self, metrics, df,key):
         loss_metric = self.tmetrics.metrics['loss']['test']
         acc_metric = self.tmetrics.metrics['loss']['accuracy']
-        self.final_result(df)
+        self.final_result(df, loss_metric, acc_metric)
         metrics[key] = {'loss': loss_metric.result(), 'accuracy': acc_metric.result()}
 
 
     def final_result(self,df, loss, acc):
         loss.reset_states()
         acc.reset_states()
-        return self.test_step(self.reshape_for_cnn(df), self.feature_set.get_label(df).values)
+        steps = df.shape[0] // self.batch_size
+        data_set = self.get_data_set(df, self.batch_size, False)
+        for data,label,_ in data_set.take(steps):
+            self.test_step(data, label)
         
 
     # Here starts the training loop. the run_epochs function 
@@ -142,18 +148,16 @@ class ZhaoModel:
     # It just runs each epoch, checks its accuracy and saves the 
     # best one.
 
-    def run_epochs(self, train_set, steps):
-        fe = self.feature_set
-        val_df = fe.get_data_set(Role.VALIDATE)
+    def run_epochs(self, train_set, val_set, train_step, val_step):
         max_acc = -100.0
-        test_set = self.reshape_for_cnn(val_df)
         for epoch in range(self.epochs):
             self.log('epoch', epoch, 'from', self.epochs)
             self.tmetrics.reset_epoch_metrics()
-            for data, labels, subjects in train_set.take(steps):
+            for data, labels, subjects in train_set.take(train_step):
                 self.run_step(epoch, data, labels, subjects)
-            self.log('epoch', epoch, 'done. testing....')
-            self.test_step(test_set, fe.get_label(val_df).values)
+            self.log('epoch', epoch, 'done. validating....')
+            for data, labels, _ in val_set.take(val_step):
+                self.test(data, labels)
             epoch_acc = self.tmetrics.report_epoch(epoch)
             if max_acc < epoch_acc:
                 self.checkpoint.save(file_prefix=os.path.join(self.checkpoint_path, 'check_point.ckpt'))

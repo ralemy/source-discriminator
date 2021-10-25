@@ -3,11 +3,12 @@ import tensorflow as tf
 from tensorflow.keras import initializers, Model
 from tensorflow.keras.layers import Dense, BatchNormalization,Dropout, LeakyReLU
 
-from app.contrib import ResNetTypeI
+from app.contrib import ResNetTypeII
 
-class Encoder(ResNetTypeI):
+class Encoder(ResNetTypeII):
     def __init__(self):
-        super(Encoder, self).__init__([2, 2, 2, 2]) #RESNET18
+#        super(Encoder, self).__init__([2, 2, 2, 2]) #RESNET18 ResNetTypeI
+        super(Encoder, self).__init__([3, 4, 6, 3]) #RESNET50
 
 class Predictor(Model):
     def __init__(self):
