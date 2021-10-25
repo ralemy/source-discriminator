@@ -165,9 +165,9 @@ class ZhaoModel:
                 self.log('Best Accuracy so far', max_acc)
     
     # Here starts the implementation of the alogorithm
-    #         
+    #  Matched to Algorithm on page 6 reference article
     def run_step(self, epoch, data, labels, subjects):
-        # Matched to Algorithm on page 6 reference article
+        ''' update encoder, predictor, and discriminator'''
         with tf.GradientTape(persistent=True) as tape:
             e_x = self.encoder(data, training=True)
             w_i = self.predictor(e_x, training=False)
@@ -178,10 +178,9 @@ class ZhaoModel:
 
         self.update_model(self.encoder, tape, v_i)
         self.update_model(self.predictor, tape, v_i)
-        
+        self.log('updated encoder and predictor', 'epoch', epoch)        
         round=0
         while True:
-            self.log('updating discriminator', 'epoch', epoch, 'round', round)
             self.update_model(self.discriminator, tape, v_i, 'max')
             with tf.GradientTape(persistent=True) as disc_tape:
                 l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
@@ -190,6 +189,7 @@ class ZhaoModel:
                 break
             tape=disc_tape
             round+=1
+        self.log('updated discriminator', 'epoch', epoch, 'round', round)
 
         self.tmetrics.update_loss('global', v_i)
         self.tmetrics.update_accuracy('global', subjects, q_d)
