@@ -203,7 +203,7 @@ class ZhaoModel:
         self.tmetrics.update_accuracy('global', subjects, q_d)
         self.tmetrics.update_loss('train', l_p)
         self.tmetrics.update_accuracy('train', labels, w_i)
-        self.debug('test_acc4', self.tmetrics.metrics['accuracy']['train'].result(), loss)
+        self.debug('test_acc4', self.tmetrics.metrics['accuracy']['train'].result(), l_p)
 
     def test_step(self, values, expected, training=True):
         enc_actual = self.encoder(values, training=False)
