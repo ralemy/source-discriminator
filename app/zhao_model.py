@@ -162,6 +162,7 @@ class ZhaoModel:
         max_acc = -100.0
         old_w2 = None
         old_w4 = None
+        old_pred = None
         for epoch in range(self.epochs):
             self.log('epoch', epoch, 'from', self.epochs)
             self.tmetrics.reset_epoch_metrics()
@@ -173,7 +174,10 @@ class ZhaoModel:
             old_w4 = w4
             old_w2 = w2
             for vd, vl, _ in val_set.take(val_step):
-                w5,w6 = self.test_step(vd, vl)
+                w5,w6, pred = self.test_step(vd, vl)
+            if epoch > 0:
+                self.debug('Predictions', type(pred))
+            old_pred = pred
             self.debug('test weights', self.is_equal(w2 , w5), self.is_equal(w4 , w6))
             epoch_acc = self.tmetrics.report_epoch(epoch)
             self.debug('test_acc_after_val', self.tmetrics.metrics['accuracy']['test'].result())
