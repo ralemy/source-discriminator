@@ -201,9 +201,12 @@ class ZhaoModel:
         #     v_i  = l_p - (self.loss_lambda * l_d)
             v_i = l_p
         
-        self.update_model(self.encoder, tape, v_i)
-        w2 = self.encoder.get_weights()
-        self.update_model(self.predictor, tape, v_i)
+        # self.update_model(self.encoder, tape, v_i)
+#        self.update_model(self.predictor, tape, v_i)
+        vars = self.predictor.trainable_variables + self.encoder.trainable_variables
+        grads = tape.gradient(v_i, vars)
+        self.optimizer.apply_gradients(zip(grads,vars))
+        w2 = self.encoder.get_weights()    
         w4 = self.predictor.get_weights()
         # self.update_model(self.discriminator, tape, l_d, 'max')
         # round=0
@@ -234,7 +237,7 @@ class ZhaoModel:
         self.tmetrics.update_loss('test', loss)
         self.tmetrics.update_accuracy('test', expected, predictions)
         self.debug('test_acc_in_step', self.tmetrics.metrics['accuracy']['test'].result(), loss)
-        return (self.encoder.get_weights(), self.predictor.get_weights())
+        return (self.encoder.get_weights(), self.predictor.get_weights(), predictions)
 #        return enc_actual 
         
     def get_disc_loss(self, subjects, enc_output, pred_output):
