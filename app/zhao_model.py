@@ -180,11 +180,14 @@ class ZhaoModel:
             e_x = self.encoder(data, training=True)
             w_i = self.predictor(e_x, training=False)
             l_p = self.loss_obj(labels, w_i) 
+            di = tf.concat([w_i, e_x], 1)
+            q_d = self.discriminator(di, training=True)
+            l_d = self.loss_obj(subjects, q_d), q_d
 
         # with tf.GradientTape() as d_tape:
         #     l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
         #     v_i  = l_p - (self.loss_lambda * l_d)
-            v_i = l_p
+            v_i = (l_p - 1.5 * l_d)
         
 
         self.update_model(self.encoder, tape, v_i)
