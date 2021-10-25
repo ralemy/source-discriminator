@@ -22,7 +22,7 @@ def read_config(file_path, action):
     config.read(file_path)
     return config[action]
 
-def report_metrics(metrics):
+def report_metrics(metrics, options):
     for k, v in metrics.items():
         if k != 'Encodings':
             print('Metrics for ', k, v)
