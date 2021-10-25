@@ -192,7 +192,7 @@ class ZhaoModel:
 
         self.update_model(self.encoder, tape, v_i)
         self.update_model(self.predictor, tape, v_i)
-        self.update_model(self.discriminator, tape, v_i, 'max')
+        self.update_model(self.discriminator, tape, l_d, 'max')
         # round=0
         # while True:
         #     self.update_model(self.discriminator, d_tape, v_i, 'max')
