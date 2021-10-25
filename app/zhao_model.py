@@ -116,7 +116,7 @@ class ZhaoModel:
     def final_results(self):
         fe = self.feature_set
         loss_metric = self.tmetrics.metrics['loss']['test']
-        acc_metric = self.tmetrics.metrics['loss']['accuracy']
+        acc_metric = self.tmetrics.metrics['accuracy']['test']
         metrics = {}
         for key in [Role.VALIDATE, Role.TRAIN, Role.TEST]:
             self.update_final_metric(metrics, fe.get_data_set(key), key.name)
@@ -178,7 +178,7 @@ class ZhaoModel:
 
         self.update_model(self.encoder, tape, v_i)
         self.update_model(self.predictor, tape, v_i)
-        if index % 10 == 0:
+        if index % 20 == 0:
             self.log('updated encoder and predictor', 'epoch', epoch, 'batch', index)        
         round=0
         while True:
@@ -190,8 +190,6 @@ class ZhaoModel:
                 break
             tape=disc_tape
             round+=1
-        if index % 10 == 0:
-            self.log('updated discriminator', 'epoch', epoch, 'round', round)
 
         self.tmetrics.update_loss('global', v_i)
         self.tmetrics.update_accuracy('global', subjects, q_d)

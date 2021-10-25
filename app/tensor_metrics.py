@@ -43,7 +43,7 @@ class TensorMetrics:
 
     @tf.function
     def update_accuracy(self, role, expected, actual):
-        self.metrics['loss'][role](expected, actual)
+        self.metrics['accuracy'][role](expected, actual)
 
     @tf.function
     def report_epoch(self,epoch):
