@@ -106,7 +106,7 @@ class ZhaoModel:
         return data_set.batch(batch_size)
 
     def learning_rate_fn(self):
-        return optimizers.schedules.ExponentialDecay(self.learning_rate, 10000, 0.96, True, 'exp_decay_lr' )
+        return optimizers.schedules.ExponentialDecay(self.learning_rate, 100000, 0.96, True, 'exp_decay_lr' )
                 
     def get_entropy(self,df, col):
         '''calculate entropy for distinct variable'''
