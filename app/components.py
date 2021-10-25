@@ -15,6 +15,7 @@ class Predictor(Model):
         super(Predictor, self).__init__()
         initializer = initializers.HeNormal()
         self.Dense1 = Dense(16, activation='relu', 
+                                    kernel_regularizer=tf.keras.regularizers.l2(0.01),
                                     kernel_initializer=initializer)
         # self.bn1 = BatchNormalization()
         # self.leaky = LeakyReLU(alpha=0.2)
