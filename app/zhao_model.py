@@ -122,7 +122,7 @@ class ZhaoModel:
             self.update_final_metric(metrics, fe.get_data_set(key), key.name)
         
         metrics['Encodings'] = {
-            'output': self.final_result(fe.get_data_set(Role.TRAIN), loss_metric, acc_metric).numpy(),
+            'output': self.final_result(fe.get_data_set(Role.TRAIN), loss_metric, acc_metric, True),
             'labels': fe.get_label(fe.get_data_set(Role.TRAIN)).values
         }
         return metrics
@@ -134,7 +134,7 @@ class ZhaoModel:
         metrics[key] = {'loss': loss_metric.result(), 'accuracy': acc_metric.result()}
 
 
-    def final_result(self,df, loss, acc):
+    def final_result(self,df, loss, acc, report = False):
         loss.reset_states()
         acc.reset_states()
         steps = df.shape[0] // self.batch_size
@@ -142,8 +142,9 @@ class ZhaoModel:
         feature_set = None
         for data,label,_ in data_set.take(steps):
             features = self.test_step(data, label).numpy()
-        self.log('features', features.shape, features[0])
-        return features
+            if report:
+                feature_set = features if feature_set is None else np.vstack((feature_set, features))
+        return feature_set
 
     # Here starts the training loop. the run_epochs function 
     # Is not responsible for algorithm implementation details
@@ -180,8 +181,6 @@ class ZhaoModel:
 
         self.update_model(self.encoder, tape, v_i)
         self.update_model(self.predictor, tape, v_i)
-        if index % 20 == 0:
-            self.log('updated encoder and predictor', 'epoch', epoch, 'batch', index)        
         round=0
         while True:
             self.update_model(self.discriminator, tape, v_i, 'max')
@@ -192,6 +191,8 @@ class ZhaoModel:
                 break
             tape=disc_tape
             round+=1
+        if index % 20 == 0:
+            self.log('updated models', 'epoch', epoch, 'batch', index)        
 
         self.tmetrics.update_loss('global', v_i)
         self.tmetrics.update_accuracy('global', subjects, q_d)

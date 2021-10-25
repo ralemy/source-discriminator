@@ -9,7 +9,7 @@
 import argparse
 import configparser
 from app.zhao_model import ZhaoModel
-from app.plot import plot_components
+from app.plot import Plotter
 
 def init_args():
     parser = argparse.ArgumentParser()
@@ -26,7 +26,8 @@ def report_metrics(metrics):
     for k, v in metrics.items():
         if k != 'Encodings':
             print('Metrics for ', k, v)
-    plot_components(metrics['Encodings']['output'], metrics['Encodings']['labels'], options)
+    plotter = Plotter(options)
+    plotter.plot_components(metrics['Encodings']['output'], metrics['Encodings']['labels'])
     
 
 
