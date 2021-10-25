@@ -157,12 +157,14 @@ class ZhaoModel:
         for epoch in range(self.epochs):
             self.log('epoch', epoch, 'from', self.epochs)
             self.tmetrics.reset_epoch_metrics()
+            self.debug('test_acc1', self.tmetrics.metrics['accuracy']['test'].result())
             for index, (data, labels, subjects) in enumerate(train_set.take(train_step)):
                 self.run_step(epoch, data, labels, subjects, index)
             self.log('done. validating....')
             for data, labels, _ in val_set.take(val_step):
                 self.test_step(data, labels)
             epoch_acc = self.tmetrics.report_epoch(epoch)
+            self.debug('test_acc2', self.tmetrics.metrics['accuracy']['test'].result())
             if max_acc < epoch_acc:
                 self.checkpoint.save(file_prefix=os.path.join(self.checkpoint_path, 'check_point.ckpt'))
                 max_acc = epoch_acc
@@ -210,6 +212,7 @@ class ZhaoModel:
         loss = self.loss_obj(expected, predictions)
         self.tmetrics.update_loss('test', loss)
         self.tmetrics.update_accuracy('test', expected, predictions)
+        self.debug('test_acc3', self.tmetrics.metrics['accuracy']['test'].result())
         return enc_actual
         
     def get_disc_loss(self, subjects, enc_output, pred_output):
