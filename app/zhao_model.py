@@ -180,10 +180,8 @@ class ZhaoModel:
             e_x = self.encoder(data, training=True)
             w_i = self.predictor(e_x, training=False)
             l_p = self.loss_obj(labels, w_i) 
-            l_p += self.regularize(self.encoder, self.predictor)
 
             l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
-            l_d += self.regularize(self.encoder, self.discriminator)
             v_i  = l_p - (self.loss_lambda * l_d)
 
         self.update_model(self.encoder, tape, v_i)
@@ -205,11 +203,6 @@ class ZhaoModel:
         self.tmetrics.update_accuracy('global', subjects, q_d)
         self.tmetrics.update_loss('train', l_p)
         self.tmetrics.update_accuracy('train', labels, w_i)
-
-    def regularize(self, *models):
-        vars = reduce(lambda a,b: a+b, [model.trainable_variables for model in models])
-        return tf.add_n([tf.nn.l2_loss(v) for v in vars])* self.l2
-
 
 
     def test_step(self, values, expected, training=True):
