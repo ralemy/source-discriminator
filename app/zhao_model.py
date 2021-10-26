@@ -1,3 +1,4 @@
+from functools import reduce
 import numpy as np
 import tensorflow as tf
 import os
@@ -35,13 +36,14 @@ class ZhaoModel:
         self.pred_path = '../predictions' if 'pred_path' not in options else options['pred_path']
         self.epochs = 5 if 'epochs' not in options else int(options['epochs'])
         self.learning_rate = 0.001 if 'learning_rate' not in options else float(options['learning_rate'])
+        self.l2 = 0.01 if 'l2' not in options else float(options['l2'])
         self.batch_size = 32 if 'batch_size' not in options else int(options['batch_size'])
         self.refresh_data = False if 'refresh_data' not in options else options ['refresh_data'].upper() == 'TRUE'
         self.set_name = 'source_discrimator' if 'set_name' not in options else options['set_name']
         self.feature_set = self.get_feature_set(training)
-        self.encoder = Encoder()
-        self.discriminator = Discriminator()
-        self.predictor = Predictor()
+        self.encoder = Encoder(self.l2)
+        self.discriminator = Discriminator(self.l2)
+        self.predictor = Predictor(self.l2)
         self.loss_obj = losses.BinaryCrossentropy(reduction=losses.Reduction.SUM_OVER_BATCH_SIZE) 
         self.optimizer = optimizers.Adam(learning_rate=self.learning_rate_fn())
         self.checkpoint=tf.train.Checkpoint(encoder=self.encoder, predictor=self.predictor)
@@ -107,7 +109,7 @@ class ZhaoModel:
 
     def learning_rate_fn(self):
         return optimizers.schedules.ExponentialDecay(self.learning_rate, 100000, 0.96, True, 'exp_decay_lr' )
-                
+
     def get_entropy(self,df, col):
         '''calculate entropy for distinct variable'''
         v = df[col].value_counts()
@@ -178,8 +180,10 @@ class ZhaoModel:
             e_x = self.encoder(data, training=True)
             w_i = self.predictor(e_x, training=False)
             l_p = self.loss_obj(labels, w_i) 
+            l_p += self.regularize(self.encode, self.predictor)
 
             l_d, q_d = self.get_disc_loss(subjects, e_x, w_i)
+            l_d += self.regularize(self.encode, self.discriminator)
             v_i  = l_p - (self.loss_lambda * l_d)
 
         self.update_model(self.encoder, tape, v_i)
@@ -201,6 +205,12 @@ class ZhaoModel:
         self.tmetrics.update_accuracy('global', subjects, q_d)
         self.tmetrics.update_loss('train', l_p)
         self.tmetrics.update_accuracy('train', labels, w_i)
+
+    def regularize(self, *models):
+        vars = reduce(lambda a,b: a+b, [model.trainable_variables for model in models])
+        return tf.add_n([tf.nn.l2_loss(v) for v in vars])* self.l2
+
+
 
     def test_step(self, values, expected, training=True):
         enc_actual = self.encoder(values, training=False)
