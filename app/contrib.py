@@ -165,7 +165,7 @@ class ResNetType0(tf.keras.Model):
 
 class ResNetTypeX(tf.keras.Model): #Custom added type
     def __init__(self, layer_params):
-        super(ResNetType0, self).__init__()
+        super(ResNetTypeX, self).__init__()
 
         # input 64 * 8192 * 1
         self.layer1 = make_basic_block_layer(filter_num=8,
@@ -184,7 +184,7 @@ class ResNetTypeX(tf.keras.Model): #Custom added type
                                              blocks=layer_params[4],
                                              stride=2, kernel_size=(3,3))
         self.layer4 = make_basic_block_layer(filter_num=256,
-                                             blocks=layer_params[4],
+                                             blocks=layer_params[5],
                                              stride=2, kernel_size=(3,3))
         # output 1 * 128 * 256
         self.avgpool = tf.keras.layers.GlobalAveragePooling2D()
