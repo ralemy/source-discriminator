@@ -1,0 +1,1245 @@
+root@2609de9cb3c5:/opt/source-discriminator# python main.py --action train --config ../config.ini
+2021-10-26 03:08:24.624744 ZhaoModel Loading from feature store ../feature_store/source_discriminator/1635137786
+2021-10-26 03:08:24.624780 FeatureEngineer reading the feature set
+2021-10-26 03:08:41.589105 FeatureEngineer reading the config
+2021-10-26 03:08:41.631681: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.636240: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.636403: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.636890: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-10-26 03:08:41.637575: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.637725: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.637888: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.968713: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.969000: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.969203: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:937] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2021-10-26 03:08:41.969429: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 10072 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1
+2021-10-26 03:08:42.393066 ZhaoModel reading training set
+2021-10-26 03:09:09.123339: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3019898880 exceeds 10% of free system memory.
+2021-10-26 03:09:10.598950: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3019898880 exceeds 10% of free system memory.
+2021-10-26 03:09:15.355420 ZhaoModel running epochs
+2021-10-26 03:09:15.355450 ZhaoModel epoch 0 from 150
+2021-10-26 03:09:15.359192: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3019898880 exceeds 10% of free system memory.
+2021-10-26 03:09:16.671254: I tensorflow/stream_executor/cuda/cuda_dnn.cc:369] Loaded cuDNN version 8100
+2021-10-26 03:09:21.652825 ZhaoModel batch 0
+2021-10-26 03:10:02.435962 ZhaoModel batch 20
+2021-10-26 03:10:41.800122 ZhaoModel batch 40
+2021-10-26 03:11:21.176795 ZhaoModel batch 60
+2021-10-26 03:12:01.022664 ZhaoModel batch 80
+2021-10-26 03:12:18.849042 ZhaoModel done. validating....
+2021-10-26 03:12:21.447559 ZhaoModel Best Accuracy so far tf.Tensor(0.53409094, shape=(), dtype=float32)
+2021-10-26 03:12:21.447657 ZhaoModel epoch 1 from 150
+2021-10-26 03:12:21.449669: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3019898880 exceeds 10% of free system memory.
+2021-10-26 03:12:24.437818 ZhaoModel batch 0
+2021-10-26 03:13:04.323557 ZhaoModel batch 20
+2021-10-26 03:13:44.202499 ZhaoModel batch 40
+2021-10-26 03:14:24.137984 ZhaoModel batch 60
+2021-10-26 03:15:02.046499 ZhaoModel batch 80
+2021-10-26 03:15:19.251034 ZhaoModel done. validating....
+2021-10-26 03:15:21.730439 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.53409094, shape=(), dtype=float32)
+2021-10-26 03:15:21.730586 ZhaoModel epoch 2 from 150
+2021-10-26 03:15:21.733455: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 3019898880 exceeds 10% of free system memory.
+2021-10-26 03:15:24.506172 ZhaoModel batch 0
+2021-10-26 03:16:02.449284 ZhaoModel batch 20
+2021-10-26 03:16:40.408115 ZhaoModel batch 40
+2021-10-26 03:17:19.957413 ZhaoModel batch 60
+2021-10-26 03:17:59.959815 ZhaoModel batch 80
+2021-10-26 03:18:18.163429 ZhaoModel done. validating....
+2021-10-26 03:18:20.809012 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.53409094, shape=(), dtype=float32)
+2021-10-26 03:18:20.809136 ZhaoModel epoch 3 from 150
+2021-10-26 03:18:23.723551 ZhaoModel batch 0
+2021-10-26 03:19:03.582275 ZhaoModel batch 20
+2021-10-26 03:19:43.458446 ZhaoModel batch 40
+2021-10-26 03:20:23.182197 ZhaoModel batch 60
+2021-10-26 03:21:02.979554 ZhaoModel batch 80
+2021-10-26 03:21:20.985094 ZhaoModel done. validating....
+2021-10-26 03:21:23.592238 ZhaoModel accuracy tf.Tensor(0.47727272, shape=(), dtype=float32) best_accuracy tf.Tensor(0.53409094, shape=(), dtype=float32)
+2021-10-26 03:21:23.592384 ZhaoModel epoch 4 from 150
+2021-10-26 03:21:26.564127 ZhaoModel batch 0
+2021-10-26 03:22:06.616409 ZhaoModel batch 20
+2021-10-26 03:22:46.049478 ZhaoModel batch 40
+2021-10-26 03:23:25.294350 ZhaoModel batch 60
+2021-10-26 03:24:05.263273 ZhaoModel batch 80
+2021-10-26 03:24:23.247130 ZhaoModel done. validating....
+2021-10-26 03:24:25.817302 ZhaoModel accuracy tf.Tensor(0.4659091, shape=(), dtype=float32) best_accuracy tf.Tensor(0.53409094, shape=(), dtype=float32)
+2021-10-26 03:24:25.817460 ZhaoModel epoch 5 from 150
+2021-10-26 03:24:28.820244 ZhaoModel batch 0
+2021-10-26 03:25:08.774390 ZhaoModel batch 20
+2021-10-26 03:25:48.678815 ZhaoModel batch 40
+2021-10-26 03:26:30.822009 ZhaoModel batch 60
+2021-10-26 03:27:10.716199 ZhaoModel batch 80
+2021-10-26 03:27:28.733140 ZhaoModel done. validating....
+2021-10-26 03:27:31.332961 ZhaoModel accuracy tf.Tensor(0.5, shape=(), dtype=float32) best_accuracy tf.Tensor(0.53409094, shape=(), dtype=float32)
+2021-10-26 03:27:31.333137 ZhaoModel epoch 6 from 150
+2021-10-26 03:27:34.294931 ZhaoModel batch 0
+2021-10-26 03:28:14.269870 ZhaoModel batch 20
+2021-10-26 03:28:53.153677 ZhaoModel batch 40
+2021-10-26 03:29:31.192494 ZhaoModel batch 60
+2021-10-26 03:30:09.312572 ZhaoModel batch 80
+2021-10-26 03:30:26.425961 ZhaoModel done. validating....
+2021-10-26 03:30:29.052495 ZhaoModel accuracy tf.Tensor(0.45454547, shape=(), dtype=float32) best_accuracy tf.Tensor(0.53409094, shape=(), dtype=float32)
+2021-10-26 03:30:29.052632 ZhaoModel epoch 7 from 150
+2021-10-26 03:30:31.994062 ZhaoModel batch 0
+2021-10-26 03:31:09.951719 ZhaoModel batch 20
+2021-10-26 03:31:48.028318 ZhaoModel batch 40
+2021-10-26 03:32:26.222147 ZhaoModel batch 60
+2021-10-26 03:33:04.714401 ZhaoModel batch 80
+2021-10-26 03:33:21.694524 ZhaoModel done. validating....
+2021-10-26 03:33:24.185083 ZhaoModel accuracy tf.Tensor(0.5, shape=(), dtype=float32) best_accuracy tf.Tensor(0.53409094, shape=(), dtype=float32)
+2021-10-26 03:33:24.185231 ZhaoModel epoch 8 from 150
+2021-10-26 03:33:27.086327 ZhaoModel batch 0
+2021-10-26 03:34:05.091280 ZhaoModel batch 20
+2021-10-26 03:34:43.400715 ZhaoModel batch 40
+2021-10-26 03:35:21.788187 ZhaoModel batch 60
+2021-10-26 03:36:00.095422 ZhaoModel batch 80
+2021-10-26 03:36:17.157192 ZhaoModel done. validating....
+2021-10-26 03:36:19.712179 ZhaoModel Best Accuracy so far tf.Tensor(0.5681818, shape=(), dtype=float32)
+2021-10-26 03:36:19.712292 ZhaoModel epoch 9 from 150
+2021-10-26 03:36:22.596638 ZhaoModel batch 0
+2021-10-26 03:37:00.539885 ZhaoModel batch 20
+2021-10-26 03:37:39.079226 ZhaoModel batch 40
+2021-10-26 03:38:17.083662 ZhaoModel batch 60
+2021-10-26 03:38:55.392012 ZhaoModel batch 80
+2021-10-26 03:39:12.717309 ZhaoModel done. validating....
+2021-10-26 03:39:15.229606 ZhaoModel Best Accuracy so far tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 03:39:15.229696 ZhaoModel epoch 10 from 150
+2021-10-26 03:39:18.110516 ZhaoModel batch 0
+2021-10-26 03:39:56.145987 ZhaoModel batch 20
+2021-10-26 03:40:34.461893 ZhaoModel batch 40
+2021-10-26 03:41:13.012063 ZhaoModel batch 60
+2021-10-26 03:41:51.198434 ZhaoModel batch 80
+2021-10-26 03:42:08.405955 ZhaoModel done. validating....
+2021-10-26 03:42:10.905228 ZhaoModel accuracy tf.Tensor(0.54545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 03:42:10.905365 ZhaoModel epoch 11 from 150
+2021-10-26 03:42:13.814471 ZhaoModel batch 0
+2021-10-26 03:42:51.993561 ZhaoModel batch 20
+2021-10-26 03:43:30.819850 ZhaoModel batch 40
+2021-10-26 03:44:08.980973 ZhaoModel batch 60
+2021-10-26 03:44:47.183487 ZhaoModel batch 80
+2021-10-26 03:45:04.266084 ZhaoModel done. validating....
+2021-10-26 03:45:06.816317 ZhaoModel accuracy tf.Tensor(0.57954544, shape=(), dtype=float32) best_accuracy tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 03:45:06.816447 ZhaoModel epoch 12 from 150
+2021-10-26 03:45:09.675040 ZhaoModel batch 0
+2021-10-26 03:45:48.124438 ZhaoModel batch 20
+2021-10-26 03:46:26.695221 ZhaoModel batch 40
+2021-10-26 03:47:04.860183 ZhaoModel batch 60
+2021-10-26 03:47:43.833519 ZhaoModel batch 80
+2021-10-26 03:48:01.145126 ZhaoModel done. validating....
+2021-10-26 03:48:03.735217 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 03:48:03.735365 ZhaoModel epoch 13 from 150
+2021-10-26 03:48:06.599439 ZhaoModel batch 0
+2021-10-26 03:48:44.808375 ZhaoModel batch 20
+2021-10-26 03:49:23.054985 ZhaoModel batch 40
+2021-10-26 03:50:01.508812 ZhaoModel batch 60
+2021-10-26 03:50:39.842464 ZhaoModel batch 80
+2021-10-26 03:50:57.137820 ZhaoModel done. validating....
+2021-10-26 03:50:59.682532 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 03:50:59.682668 ZhaoModel epoch 14 from 150
+2021-10-26 03:51:02.488977 ZhaoModel batch 0
+2021-10-26 03:51:40.659636 ZhaoModel batch 20
+2021-10-26 03:52:19.193914 ZhaoModel batch 40
+2021-10-26 03:52:57.487443 ZhaoModel batch 60
+2021-10-26 03:53:35.829387 ZhaoModel batch 80
+2021-10-26 03:53:53.345176 ZhaoModel done. validating....
+2021-10-26 03:53:55.809161 ZhaoModel accuracy tf.Tensor(0.60227275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 03:53:55.809316 ZhaoModel epoch 15 from 150
+2021-10-26 03:53:58.621961 ZhaoModel batch 0
+2021-10-26 03:54:36.662707 ZhaoModel batch 20
+2021-10-26 03:55:15.355107 ZhaoModel batch 40
+2021-10-26 03:55:53.510823 ZhaoModel batch 60
+2021-10-26 03:56:31.865544 ZhaoModel batch 80
+2021-10-26 03:56:49.596021 ZhaoModel done. validating....
+2021-10-26 03:56:52.158744 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 03:56:52.158895 ZhaoModel epoch 16 from 150
+2021-10-26 03:56:54.988313 ZhaoModel batch 0
+2021-10-26 03:57:33.012447 ZhaoModel batch 20
+2021-10-26 03:58:13.331667 ZhaoModel batch 40
+2021-10-26 03:58:51.569149 ZhaoModel batch 60
+2021-10-26 03:59:29.884582 ZhaoModel batch 80
+2021-10-26 03:59:47.252893 ZhaoModel done. validating....
+2021-10-26 03:59:49.706070 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 03:59:49.706208 ZhaoModel epoch 17 from 150
+2021-10-26 03:59:52.528862 ZhaoModel batch 0
+2021-10-26 04:00:30.749112 ZhaoModel batch 20
+2021-10-26 04:01:09.050800 ZhaoModel batch 40
+2021-10-26 04:01:47.589506 ZhaoModel batch 60
+2021-10-26 04:02:26.411201 ZhaoModel batch 80
+2021-10-26 04:02:43.491695 ZhaoModel done. validating....
+2021-10-26 04:02:46.058085 ZhaoModel accuracy tf.Tensor(0.5568182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.60227275, shape=(), dtype=float32)
+2021-10-26 04:02:46.058170 ZhaoModel epoch 18 from 150
+2021-10-26 04:02:48.862766 ZhaoModel batch 0
+2021-10-26 04:03:27.215956 ZhaoModel batch 20
+2021-10-26 04:04:05.397177 ZhaoModel batch 40
+2021-10-26 04:04:43.792364 ZhaoModel batch 60
+2021-10-26 04:05:22.230577 ZhaoModel batch 80
+2021-10-26 04:05:40.116686 ZhaoModel done. validating....
+2021-10-26 04:05:42.637020 ZhaoModel Best Accuracy so far tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:05:42.637146 ZhaoModel epoch 19 from 150
+2021-10-26 04:05:45.463877 ZhaoModel batch 0
+2021-10-26 04:06:23.564619 ZhaoModel batch 20
+2021-10-26 04:07:02.030447 ZhaoModel batch 40
+2021-10-26 04:07:40.647958 ZhaoModel batch 60
+2021-10-26 04:08:19.225470 ZhaoModel batch 80
+2021-10-26 04:08:36.389131 ZhaoModel done. validating....
+2021-10-26 04:08:38.931467 ZhaoModel accuracy tf.Tensor(0.5568182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:08:38.931626 ZhaoModel epoch 20 from 150
+2021-10-26 04:08:41.747299 ZhaoModel batch 0
+2021-10-26 04:09:20.071034 ZhaoModel batch 20
+2021-10-26 04:09:58.419187 ZhaoModel batch 40
+2021-10-26 04:10:36.783639 ZhaoModel batch 60
+2021-10-26 04:11:15.274296 ZhaoModel batch 80
+2021-10-26 04:11:32.590229 ZhaoModel done. validating....
+2021-10-26 04:11:35.111789 ZhaoModel accuracy tf.Tensor(0.54545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:11:35.111938 ZhaoModel epoch 21 from 150
+2021-10-26 04:11:38.060926 ZhaoModel batch 0
+2021-10-26 04:12:16.180413 ZhaoModel batch 20
+2021-10-26 04:12:54.545495 ZhaoModel batch 40
+2021-10-26 04:13:33.083411 ZhaoModel batch 60
+2021-10-26 04:14:12.034129 ZhaoModel batch 80
+2021-10-26 04:14:28.990031 ZhaoModel done. validating....
+2021-10-26 04:14:31.471542 ZhaoModel accuracy tf.Tensor(0.5681818, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:14:31.471685 ZhaoModel epoch 22 from 150
+2021-10-26 04:14:34.385598 ZhaoModel batch 0
+2021-10-26 04:15:12.340796 ZhaoModel batch 20
+2021-10-26 04:15:50.572544 ZhaoModel batch 40
+2021-10-26 04:16:29.649789 ZhaoModel batch 60
+2021-10-26 04:17:07.881038 ZhaoModel batch 80
+2021-10-26 04:17:25.091368 ZhaoModel done. validating....
+2021-10-26 04:17:27.544837 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:17:27.544952 ZhaoModel epoch 23 from 150
+2021-10-26 04:17:30.347011 ZhaoModel batch 0
+2021-10-26 04:18:08.592126 ZhaoModel batch 20
+2021-10-26 04:18:46.618335 ZhaoModel batch 40
+2021-10-26 04:19:25.206251 ZhaoModel batch 60
+2021-10-26 04:20:03.729598 ZhaoModel batch 80
+2021-10-26 04:20:21.105470 ZhaoModel done. validating....
+2021-10-26 04:20:23.654194 ZhaoModel accuracy tf.Tensor(0.6136364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:20:23.654282 ZhaoModel epoch 24 from 150
+2021-10-26 04:20:26.479120 ZhaoModel batch 0
+2021-10-26 04:21:04.876829 ZhaoModel batch 20
+2021-10-26 04:21:43.054884 ZhaoModel batch 40
+2021-10-26 04:22:21.452123 ZhaoModel batch 60
+2021-10-26 04:22:59.792898 ZhaoModel batch 80
+2021-10-26 04:23:17.034045 ZhaoModel done. validating....
+2021-10-26 04:23:19.583509 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:23:19.583651 ZhaoModel epoch 25 from 150
+2021-10-26 04:23:22.435458 ZhaoModel batch 0
+2021-10-26 04:24:00.619057 ZhaoModel batch 20
+2021-10-26 04:24:39.071661 ZhaoModel batch 40
+2021-10-26 04:25:17.703744 ZhaoModel batch 60
+2021-10-26 04:25:55.978052 ZhaoModel batch 80
+2021-10-26 04:26:13.222979 ZhaoModel done. validating....
+2021-10-26 04:26:15.712145 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:26:15.712304 ZhaoModel epoch 26 from 150
+2021-10-26 04:26:18.539766 ZhaoModel batch 0
+2021-10-26 04:26:56.832810 ZhaoModel batch 20
+2021-10-26 04:27:35.397720 ZhaoModel batch 40
+2021-10-26 04:28:13.557554 ZhaoModel batch 60
+2021-10-26 04:28:51.917038 ZhaoModel batch 80
+2021-10-26 04:29:09.240067 ZhaoModel done. validating....
+2021-10-26 04:29:11.819978 ZhaoModel accuracy tf.Tensor(0.60227275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6136364, shape=(), dtype=float32)
+2021-10-26 04:29:11.820155 ZhaoModel epoch 27 from 150
+2021-10-26 04:29:14.670018 ZhaoModel batch 0
+2021-10-26 04:29:52.768125 ZhaoModel batch 20
+2021-10-26 04:30:33.331094 ZhaoModel batch 40
+2021-10-26 04:31:11.893743 ZhaoModel batch 60
+2021-10-26 04:31:50.252935 ZhaoModel batch 80
+2021-10-26 04:32:07.648208 ZhaoModel done. validating....
+2021-10-26 04:32:10.325953 ZhaoModel Best Accuracy so far tf.Tensor(0.67045456, shape=(), dtype=float32)
+2021-10-26 04:32:10.326052 ZhaoModel epoch 28 from 150
+2021-10-26 04:32:13.208379 ZhaoModel batch 0
+2021-10-26 04:32:51.397516 ZhaoModel batch 20
+2021-10-26 04:33:29.988220 ZhaoModel batch 40
+2021-10-26 04:34:08.098693 ZhaoModel batch 60
+2021-10-26 04:34:46.399151 ZhaoModel batch 80
+2021-10-26 04:35:03.763813 ZhaoModel done. validating....
+2021-10-26 04:35:06.441216 ZhaoModel Best Accuracy so far tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:35:06.441338 ZhaoModel epoch 29 from 150
+2021-10-26 04:35:09.332464 ZhaoModel batch 0
+2021-10-26 04:35:47.297263 ZhaoModel batch 20
+2021-10-26 04:36:25.706344 ZhaoModel batch 40
+2021-10-26 04:37:04.292617 ZhaoModel batch 60
+2021-10-26 04:37:42.811273 ZhaoModel batch 80
+2021-10-26 04:38:00.012032 ZhaoModel done. validating....
+2021-10-26 04:38:02.497553 ZhaoModel accuracy tf.Tensor(0.52272725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:38:02.497685 ZhaoModel epoch 30 from 150
+2021-10-26 04:38:05.288285 ZhaoModel batch 0
+2021-10-26 04:38:43.443828 ZhaoModel batch 20
+2021-10-26 04:39:22.330721 ZhaoModel batch 40
+2021-10-26 04:40:00.654224 ZhaoModel batch 60
+2021-10-26 04:40:39.142242 ZhaoModel batch 80
+2021-10-26 04:40:56.541805 ZhaoModel done. validating....
+2021-10-26 04:40:59.043225 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:40:59.043361 ZhaoModel epoch 31 from 150
+2021-10-26 04:41:01.811191 ZhaoModel batch 0
+2021-10-26 04:41:39.653741 ZhaoModel batch 20
+2021-10-26 04:42:17.955739 ZhaoModel batch 40
+2021-10-26 04:42:56.575567 ZhaoModel batch 60
+2021-10-26 04:43:34.721870 ZhaoModel batch 80
+2021-10-26 04:43:52.000632 ZhaoModel done. validating....
+2021-10-26 04:43:54.514544 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:43:54.514694 ZhaoModel epoch 32 from 150
+2021-10-26 04:43:57.383859 ZhaoModel batch 0
+2021-10-26 04:44:36.205693 ZhaoModel batch 20
+2021-10-26 04:45:14.441610 ZhaoModel batch 40
+2021-10-26 04:45:52.812102 ZhaoModel batch 60
+2021-10-26 04:46:31.597400 ZhaoModel batch 80
+2021-10-26 04:46:48.714767 ZhaoModel done. validating....
+2021-10-26 04:46:51.287702 ZhaoModel accuracy tf.Tensor(0.67045456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:46:51.287837 ZhaoModel epoch 33 from 150
+2021-10-26 04:46:54.106465 ZhaoModel batch 0
+2021-10-26 04:47:32.198510 ZhaoModel batch 20
+2021-10-26 04:48:10.463639 ZhaoModel batch 40
+2021-10-26 04:48:48.575192 ZhaoModel batch 60
+2021-10-26 04:49:27.773986 ZhaoModel batch 80
+2021-10-26 04:49:45.064952 ZhaoModel done. validating....
+2021-10-26 04:49:47.713110 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:49:47.713279 ZhaoModel epoch 34 from 150
+2021-10-26 04:49:50.600166 ZhaoModel batch 0
+2021-10-26 04:50:28.878286 ZhaoModel batch 20
+2021-10-26 04:51:07.318807 ZhaoModel batch 40
+2021-10-26 04:51:45.682580 ZhaoModel batch 60
+2021-10-26 04:52:23.847493 ZhaoModel batch 80
+2021-10-26 04:52:41.387905 ZhaoModel done. validating....
+2021-10-26 04:52:43.928702 ZhaoModel accuracy tf.Tensor(0.60227275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:52:43.928837 ZhaoModel epoch 35 from 150
+2021-10-26 04:52:46.741364 ZhaoModel batch 0
+2021-10-26 04:53:24.949645 ZhaoModel batch 20
+2021-10-26 04:54:03.394336 ZhaoModel batch 40
+2021-10-26 04:54:41.885245 ZhaoModel batch 60
+2021-10-26 04:55:20.262968 ZhaoModel batch 80
+2021-10-26 04:55:37.534336 ZhaoModel done. validating....
+2021-10-26 04:55:40.100261 ZhaoModel accuracy tf.Tensor(0.57954544, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:55:40.100409 ZhaoModel epoch 36 from 150
+2021-10-26 04:55:42.945462 ZhaoModel batch 0
+2021-10-26 04:56:21.362672 ZhaoModel batch 20
+2021-10-26 04:56:59.662798 ZhaoModel batch 40
+2021-10-26 04:57:38.063964 ZhaoModel batch 60
+2021-10-26 04:58:16.095474 ZhaoModel batch 80
+2021-10-26 04:58:33.590098 ZhaoModel done. validating....
+2021-10-26 04:58:36.059205 ZhaoModel accuracy tf.Tensor(0.47727272, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 04:58:36.059326 ZhaoModel epoch 37 from 150
+2021-10-26 04:58:39.026590 ZhaoModel batch 0
+2021-10-26 04:59:16.998074 ZhaoModel batch 20
+2021-10-26 04:59:55.170347 ZhaoModel batch 40
+2021-10-26 05:00:33.672448 ZhaoModel batch 60
+2021-10-26 05:01:11.957221 ZhaoModel batch 80
+2021-10-26 05:01:29.393825 ZhaoModel done. validating....
+2021-10-26 05:01:31.951798 ZhaoModel accuracy tf.Tensor(0.57954544, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 05:01:31.951925 ZhaoModel epoch 38 from 150
+2021-10-26 05:01:34.768937 ZhaoModel batch 0
+2021-10-26 05:02:15.111803 ZhaoModel batch 20
+2021-10-26 05:02:53.331449 ZhaoModel batch 40
+2021-10-26 05:03:31.707579 ZhaoModel batch 60
+2021-10-26 05:04:10.270604 ZhaoModel batch 80
+2021-10-26 05:04:27.508964 ZhaoModel done. validating....
+2021-10-26 05:04:30.111636 ZhaoModel accuracy tf.Tensor(0.5113636, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 05:04:30.111734 ZhaoModel epoch 39 from 150
+2021-10-26 05:04:32.953918 ZhaoModel batch 0
+2021-10-26 05:05:11.092529 ZhaoModel batch 20
+2021-10-26 05:05:49.400802 ZhaoModel batch 40
+2021-10-26 05:06:27.743924 ZhaoModel batch 60
+2021-10-26 05:07:06.235642 ZhaoModel batch 80
+2021-10-26 05:07:23.452506 ZhaoModel done. validating....
+2021-10-26 05:07:26.078235 ZhaoModel accuracy tf.Tensor(0.5568182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6818182, shape=(), dtype=float32)
+2021-10-26 05:07:26.078343 ZhaoModel epoch 40 from 150
+2021-10-26 05:07:29.021189 ZhaoModel batch 0
+2021-10-26 05:08:07.097376 ZhaoModel batch 20
+2021-10-26 05:08:45.685951 ZhaoModel batch 40
+2021-10-26 05:09:23.950401 ZhaoModel batch 60
+2021-10-26 05:10:02.472935 ZhaoModel batch 80
+2021-10-26 05:10:19.781169 ZhaoModel done. validating....
+2021-10-26 05:10:22.437848 ZhaoModel Best Accuracy so far tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:10:22.437936 ZhaoModel epoch 41 from 150
+2021-10-26 05:10:25.288258 ZhaoModel batch 0
+2021-10-26 05:11:03.481456 ZhaoModel batch 20
+2021-10-26 05:11:42.081443 ZhaoModel batch 40
+2021-10-26 05:12:20.418789 ZhaoModel batch 60
+2021-10-26 05:12:58.866914 ZhaoModel batch 80
+2021-10-26 05:13:16.433243 ZhaoModel done. validating....
+2021-10-26 05:13:18.905611 ZhaoModel accuracy tf.Tensor(0.5568182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:13:18.905746 ZhaoModel epoch 42 from 150
+2021-10-26 05:13:21.726520 ZhaoModel batch 0
+2021-10-26 05:13:59.717145 ZhaoModel batch 20
+2021-10-26 05:14:38.303900 ZhaoModel batch 40
+2021-10-26 05:15:16.974862 ZhaoModel batch 60
+2021-10-26 05:15:55.639220 ZhaoModel batch 80
+2021-10-26 05:16:12.766809 ZhaoModel done. validating....
+2021-10-26 05:16:15.245875 ZhaoModel accuracy tf.Tensor(0.6136364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:16:15.246024 ZhaoModel epoch 43 from 150
+2021-10-26 05:16:18.005488 ZhaoModel batch 0
+2021-10-26 05:16:56.195754 ZhaoModel batch 20
+2021-10-26 05:17:34.330401 ZhaoModel batch 40
+2021-10-26 05:18:12.915071 ZhaoModel batch 60
+2021-10-26 05:18:51.166399 ZhaoModel batch 80
+2021-10-26 05:19:08.500533 ZhaoModel done. validating....
+2021-10-26 05:19:10.991643 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:19:10.991779 ZhaoModel epoch 44 from 150
+2021-10-26 05:19:13.811512 ZhaoModel batch 0
+2021-10-26 05:19:52.180509 ZhaoModel batch 20
+2021-10-26 05:20:30.843593 ZhaoModel batch 40
+2021-10-26 05:21:09.766187 ZhaoModel batch 60
+2021-10-26 05:21:48.013864 ZhaoModel batch 80
+2021-10-26 05:22:05.426800 ZhaoModel done. validating....
+2021-10-26 05:22:07.901061 ZhaoModel accuracy tf.Tensor(0.5568182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:22:07.901245 ZhaoModel epoch 45 from 150
+2021-10-26 05:22:10.715158 ZhaoModel batch 0
+2021-10-26 05:22:49.033641 ZhaoModel batch 20
+2021-10-26 05:23:27.384769 ZhaoModel batch 40
+2021-10-26 05:24:05.999097 ZhaoModel batch 60
+2021-10-26 05:24:44.891969 ZhaoModel batch 80
+2021-10-26 05:25:02.077458 ZhaoModel done. validating....
+2021-10-26 05:25:04.667529 ZhaoModel accuracy tf.Tensor(0.6136364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:25:04.667662 ZhaoModel epoch 46 from 150
+2021-10-26 05:25:07.475311 ZhaoModel batch 0
+2021-10-26 05:25:45.752226 ZhaoModel batch 20
+2021-10-26 05:26:24.267751 ZhaoModel batch 40
+2021-10-26 05:27:02.618257 ZhaoModel batch 60
+2021-10-26 05:27:40.955794 ZhaoModel batch 80
+2021-10-26 05:27:58.390036 ZhaoModel done. validating....
+2021-10-26 05:28:00.888378 ZhaoModel accuracy tf.Tensor(0.65909094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:28:00.888541 ZhaoModel epoch 47 from 150
+2021-10-26 05:28:03.772145 ZhaoModel batch 0
+2021-10-26 05:28:42.124102 ZhaoModel batch 20
+2021-10-26 05:29:20.428112 ZhaoModel batch 40
+2021-10-26 05:29:58.704309 ZhaoModel batch 60
+2021-10-26 05:30:37.167376 ZhaoModel batch 80
+2021-10-26 05:30:54.437514 ZhaoModel done. validating....
+2021-10-26 05:30:56.941090 ZhaoModel accuracy tf.Tensor(0.64772725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:30:56.941226 ZhaoModel epoch 48 from 150
+2021-10-26 05:30:59.773955 ZhaoModel batch 0
+2021-10-26 05:31:38.694199 ZhaoModel batch 20
+2021-10-26 05:32:16.983211 ZhaoModel batch 40
+2021-10-26 05:32:55.563904 ZhaoModel batch 60
+2021-10-26 05:33:33.981460 ZhaoModel batch 80
+2021-10-26 05:33:53.570345 ZhaoModel done. validating....
+2021-10-26 05:33:56.137559 ZhaoModel accuracy tf.Tensor(0.6931818, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:33:56.137679 ZhaoModel epoch 49 from 150
+2021-10-26 05:33:58.923979 ZhaoModel batch 0
+2021-10-26 05:34:37.047295 ZhaoModel batch 20
+2021-10-26 05:35:15.507971 ZhaoModel batch 40
+2021-10-26 05:35:53.939755 ZhaoModel batch 60
+2021-10-26 05:36:32.289738 ZhaoModel batch 80
+2021-10-26 05:36:49.605824 ZhaoModel done. validating....
+2021-10-26 05:36:52.097380 ZhaoModel accuracy tf.Tensor(0.65909094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:36:52.097516 ZhaoModel epoch 50 from 150
+2021-10-26 05:36:55.078427 ZhaoModel batch 0
+2021-10-26 05:37:33.475141 ZhaoModel batch 20
+2021-10-26 05:38:11.613752 ZhaoModel batch 40
+2021-10-26 05:38:50.014725 ZhaoModel batch 60
+2021-10-26 05:39:28.345953 ZhaoModel batch 80
+2021-10-26 05:39:46.105975 ZhaoModel done. validating....
+2021-10-26 05:39:48.618774 ZhaoModel accuracy tf.Tensor(0.54545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:39:48.618933 ZhaoModel epoch 51 from 150
+2021-10-26 05:39:51.434421 ZhaoModel batch 0
+2021-10-26 05:40:29.297458 ZhaoModel batch 20
+2021-10-26 05:41:07.606468 ZhaoModel batch 40
+2021-10-26 05:41:46.274097 ZhaoModel batch 60
+2021-10-26 05:42:24.661343 ZhaoModel batch 80
+2021-10-26 05:42:41.894214 ZhaoModel done. validating....
+2021-10-26 05:42:44.384976 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:42:44.385127 ZhaoModel epoch 52 from 150
+2021-10-26 05:42:47.330424 ZhaoModel batch 0
+2021-10-26 05:43:25.815825 ZhaoModel batch 20
+2021-10-26 05:44:03.968266 ZhaoModel batch 40
+2021-10-26 05:44:42.380671 ZhaoModel batch 60
+2021-10-26 05:45:20.872124 ZhaoModel batch 80
+2021-10-26 05:45:38.250386 ZhaoModel done. validating....
+2021-10-26 05:45:40.799567 ZhaoModel accuracy tf.Tensor(0.64772725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:45:40.799745 ZhaoModel epoch 53 from 150
+2021-10-26 05:45:43.759986 ZhaoModel batch 0
+2021-10-26 05:46:22.044964 ZhaoModel batch 20
+2021-10-26 05:47:00.565976 ZhaoModel batch 40
+2021-10-26 05:47:38.907681 ZhaoModel batch 60
+2021-10-26 05:48:17.270937 ZhaoModel batch 80
+2021-10-26 05:48:34.505099 ZhaoModel done. validating....
+2021-10-26 05:48:37.011378 ZhaoModel accuracy tf.Tensor(0.54545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.6931818, shape=(), dtype=float32)
+2021-10-26 05:48:37.011536 ZhaoModel epoch 54 from 150
+2021-10-26 05:48:39.877569 ZhaoModel batch 0
+2021-10-26 05:49:18.003056 ZhaoModel batch 20
+2021-10-26 05:49:56.613827 ZhaoModel batch 40
+2021-10-26 05:50:34.911029 ZhaoModel batch 60
+2021-10-26 05:51:13.241326 ZhaoModel batch 80
+2021-10-26 05:51:30.799801 ZhaoModel done. validating....
+2021-10-26 05:51:33.535976 ZhaoModel Best Accuracy so far tf.Tensor(0.77272725, shape=(), dtype=float32)
+2021-10-26 05:51:33.536089 ZhaoModel epoch 55 from 150
+2021-10-26 05:51:36.447051 ZhaoModel batch 0
+2021-10-26 05:52:14.498091 ZhaoModel batch 20
+2021-10-26 05:52:53.007832 ZhaoModel batch 40
+2021-10-26 05:53:31.258701 ZhaoModel batch 60
+2021-10-26 05:54:09.710643 ZhaoModel batch 80
+2021-10-26 05:54:26.959975 ZhaoModel done. validating....
+2021-10-26 05:54:29.531660 ZhaoModel Best Accuracy so far tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 05:54:29.531811 ZhaoModel epoch 56 from 150
+2021-10-26 05:54:32.441535 ZhaoModel batch 0
+2021-10-26 05:55:10.596444 ZhaoModel batch 20
+2021-10-26 05:55:49.006316 ZhaoModel batch 40
+2021-10-26 05:56:27.933858 ZhaoModel batch 60
+2021-10-26 05:57:06.565264 ZhaoModel batch 80
+2021-10-26 05:57:23.918649 ZhaoModel done. validating....
+2021-10-26 05:57:26.409535 ZhaoModel accuracy tf.Tensor(0.7613636, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 05:57:26.409668 ZhaoModel epoch 57 from 150
+2021-10-26 05:57:29.205679 ZhaoModel batch 0
+2021-10-26 05:58:07.326399 ZhaoModel batch 20
+2021-10-26 05:58:45.833643 ZhaoModel batch 40
+2021-10-26 05:59:24.229242 ZhaoModel batch 60
+2021-10-26 06:00:02.939471 ZhaoModel batch 80
+2021-10-26 06:00:20.137627 ZhaoModel done. validating....
+2021-10-26 06:00:22.721853 ZhaoModel accuracy tf.Tensor(0.7613636, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:00:22.721989 ZhaoModel epoch 58 from 150
+2021-10-26 06:00:25.627068 ZhaoModel batch 0
+2021-10-26 06:01:03.727368 ZhaoModel batch 20
+2021-10-26 06:01:42.230559 ZhaoModel batch 40
+2021-10-26 06:02:20.546856 ZhaoModel batch 60
+2021-10-26 06:02:59.058469 ZhaoModel batch 80
+2021-10-26 06:03:16.499809 ZhaoModel done. validating....
+2021-10-26 06:03:19.069232 ZhaoModel accuracy tf.Tensor(0.78409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:03:19.069379 ZhaoModel epoch 59 from 150
+2021-10-26 06:03:21.940932 ZhaoModel batch 0
+2021-10-26 06:03:59.967488 ZhaoModel batch 20
+2021-10-26 06:04:38.495939 ZhaoModel batch 40
+2021-10-26 06:05:17.102509 ZhaoModel batch 60
+2021-10-26 06:05:57.472213 ZhaoModel batch 80
+2021-10-26 06:06:14.550553 ZhaoModel done. validating....
+2021-10-26 06:06:17.023670 ZhaoModel accuracy tf.Tensor(0.8068182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:06:17.023831 ZhaoModel epoch 60 from 150
+2021-10-26 06:06:19.858295 ZhaoModel batch 0
+2021-10-26 06:06:57.834076 ZhaoModel batch 20
+2021-10-26 06:07:36.534519 ZhaoModel batch 40
+2021-10-26 06:08:15.225794 ZhaoModel batch 60
+2021-10-26 06:08:53.400727 ZhaoModel batch 80
+2021-10-26 06:09:10.702854 ZhaoModel done. validating....
+2021-10-26 06:09:13.224203 ZhaoModel accuracy tf.Tensor(0.64772725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:09:13.224347 ZhaoModel epoch 61 from 150
+2021-10-26 06:09:16.140437 ZhaoModel batch 0
+2021-10-26 06:09:54.309025 ZhaoModel batch 20
+2021-10-26 06:10:32.745540 ZhaoModel batch 40
+2021-10-26 06:11:11.045073 ZhaoModel batch 60
+2021-10-26 06:11:49.398924 ZhaoModel batch 80
+2021-10-26 06:12:06.722372 ZhaoModel done. validating....
+2021-10-26 06:12:09.337254 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:12:09.337403 ZhaoModel epoch 62 from 150
+2021-10-26 06:12:12.196893 ZhaoModel batch 0
+2021-10-26 06:12:50.473477 ZhaoModel batch 20
+2021-10-26 06:13:29.000181 ZhaoModel batch 40
+2021-10-26 06:14:07.291663 ZhaoModel batch 60
+2021-10-26 06:14:45.871007 ZhaoModel batch 80
+2021-10-26 06:15:03.072744 ZhaoModel done. validating....
+2021-10-26 06:15:05.647250 ZhaoModel accuracy tf.Tensor(0.47727272, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:15:05.647394 ZhaoModel epoch 63 from 150
+2021-10-26 06:15:08.468633 ZhaoModel batch 0
+2021-10-26 06:15:46.800462 ZhaoModel batch 20
+2021-10-26 06:16:25.345461 ZhaoModel batch 40
+2021-10-26 06:17:03.866715 ZhaoModel batch 60
+2021-10-26 06:17:42.410350 ZhaoModel batch 80
+2021-10-26 06:17:59.771090 ZhaoModel done. validating....
+2021-10-26 06:18:02.275110 ZhaoModel accuracy tf.Tensor(0.67045456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:18:02.275262 ZhaoModel epoch 64 from 150
+2021-10-26 06:18:05.158294 ZhaoModel batch 0
+2021-10-26 06:18:43.161183 ZhaoModel batch 20
+2021-10-26 06:19:21.494502 ZhaoModel batch 40
+2021-10-26 06:19:59.845150 ZhaoModel batch 60
+2021-10-26 06:20:38.136849 ZhaoModel batch 80
+2021-10-26 06:20:55.854462 ZhaoModel done. validating....
+2021-10-26 06:20:58.333037 ZhaoModel accuracy tf.Tensor(0.54545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:20:58.333191 ZhaoModel epoch 65 from 150
+2021-10-26 06:21:01.172795 ZhaoModel batch 0
+2021-10-26 06:21:39.231852 ZhaoModel batch 20
+2021-10-26 06:22:17.786178 ZhaoModel batch 40
+2021-10-26 06:22:56.230783 ZhaoModel batch 60
+2021-10-26 06:23:34.449319 ZhaoModel batch 80
+2021-10-26 06:23:51.640011 ZhaoModel done. validating....
+2021-10-26 06:23:54.131186 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:23:54.131346 ZhaoModel epoch 66 from 150
+2021-10-26 06:23:57.021035 ZhaoModel batch 0
+2021-10-26 06:24:35.048210 ZhaoModel batch 20
+2021-10-26 06:25:13.671643 ZhaoModel batch 40
+2021-10-26 06:25:52.009938 ZhaoModel batch 60
+2021-10-26 06:26:30.688744 ZhaoModel batch 80
+2021-10-26 06:26:47.827267 ZhaoModel done. validating....
+2021-10-26 06:26:50.408301 ZhaoModel accuracy tf.Tensor(0.6818182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:26:50.408403 ZhaoModel epoch 67 from 150
+2021-10-26 06:26:53.271364 ZhaoModel batch 0
+2021-10-26 06:27:31.841381 ZhaoModel batch 20
+2021-10-26 06:28:10.365324 ZhaoModel batch 40
+2021-10-26 06:28:48.973463 ZhaoModel batch 60
+2021-10-26 06:29:27.350930 ZhaoModel batch 80
+2021-10-26 06:29:44.456358 ZhaoModel done. validating....
+2021-10-26 06:29:47.121453 ZhaoModel accuracy tf.Tensor(0.45454547, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:29:47.121603 ZhaoModel epoch 68 from 150
+2021-10-26 06:29:49.996274 ZhaoModel batch 0
+2021-10-26 06:30:28.254205 ZhaoModel batch 20
+2021-10-26 06:31:06.665342 ZhaoModel batch 40
+2021-10-26 06:31:44.955385 ZhaoModel batch 60
+2021-10-26 06:32:23.535966 ZhaoModel batch 80
+2021-10-26 06:32:40.848216 ZhaoModel done. validating....
+2021-10-26 06:32:43.379489 ZhaoModel accuracy tf.Tensor(0.8181818, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:32:43.379632 ZhaoModel epoch 69 from 150
+2021-10-26 06:32:46.317572 ZhaoModel batch 0
+2021-10-26 06:33:24.236376 ZhaoModel batch 20
+2021-10-26 06:34:02.520778 ZhaoModel batch 40
+2021-10-26 06:34:41.232109 ZhaoModel batch 60
+2021-10-26 06:35:19.384517 ZhaoModel batch 80
+2021-10-26 06:35:36.822371 ZhaoModel done. validating....
+2021-10-26 06:35:39.450302 ZhaoModel accuracy tf.Tensor(0.78409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:35:39.450510 ZhaoModel epoch 70 from 150
+2021-10-26 06:35:42.358440 ZhaoModel batch 0
+2021-10-26 06:36:20.572638 ZhaoModel batch 20
+2021-10-26 06:36:58.800278 ZhaoModel batch 40
+2021-10-26 06:37:37.183202 ZhaoModel batch 60
+2021-10-26 06:38:17.600868 ZhaoModel batch 80
+2021-10-26 06:38:34.823072 ZhaoModel done. validating....
+2021-10-26 06:38:37.350379 ZhaoModel accuracy tf.Tensor(0.625, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:38:37.350525 ZhaoModel epoch 71 from 150
+2021-10-26 06:38:40.173747 ZhaoModel batch 0
+2021-10-26 06:39:18.477438 ZhaoModel batch 20
+2021-10-26 06:39:56.819429 ZhaoModel batch 40
+2021-10-26 06:40:35.199859 ZhaoModel batch 60
+2021-10-26 06:41:13.709901 ZhaoModel batch 80
+2021-10-26 06:41:31.000225 ZhaoModel done. validating....
+2021-10-26 06:41:33.499625 ZhaoModel accuracy tf.Tensor(0.6818182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:41:33.499763 ZhaoModel epoch 72 from 150
+2021-10-26 06:41:36.341555 ZhaoModel batch 0
+2021-10-26 06:42:14.844424 ZhaoModel batch 20
+2021-10-26 06:42:52.994162 ZhaoModel batch 40
+2021-10-26 06:43:31.426194 ZhaoModel batch 60
+2021-10-26 06:44:10.114443 ZhaoModel batch 80
+2021-10-26 06:44:27.545793 ZhaoModel done. validating....
+2021-10-26 06:44:30.059209 ZhaoModel accuracy tf.Tensor(0.60227275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:44:30.059346 ZhaoModel epoch 73 from 150
+2021-10-26 06:44:32.995929 ZhaoModel batch 0
+2021-10-26 06:45:11.137994 ZhaoModel batch 20
+2021-10-26 06:45:49.363760 ZhaoModel batch 40
+2021-10-26 06:46:27.938822 ZhaoModel batch 60
+2021-10-26 06:47:06.114287 ZhaoModel batch 80
+2021-10-26 06:47:23.466384 ZhaoModel done. validating....
+2021-10-26 06:47:25.936070 ZhaoModel accuracy tf.Tensor(0.8068182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:47:25.936204 ZhaoModel epoch 74 from 150
+2021-10-26 06:47:28.741631 ZhaoModel batch 0
+2021-10-26 06:48:06.912239 ZhaoModel batch 20
+2021-10-26 06:48:45.431649 ZhaoModel batch 40
+2021-10-26 06:49:23.542538 ZhaoModel batch 60
+2021-10-26 06:50:01.982362 ZhaoModel batch 80
+2021-10-26 06:50:19.387307 ZhaoModel done. validating....
+2021-10-26 06:50:21.848526 ZhaoModel accuracy tf.Tensor(0.8068182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:50:21.848681 ZhaoModel epoch 75 from 150
+2021-10-26 06:50:24.760512 ZhaoModel batch 0
+2021-10-26 06:51:02.805435 ZhaoModel batch 20
+2021-10-26 06:51:41.371931 ZhaoModel batch 40
+2021-10-26 06:52:19.897594 ZhaoModel batch 60
+2021-10-26 06:52:58.065412 ZhaoModel batch 80
+2021-10-26 06:53:15.644222 ZhaoModel done. validating....
+2021-10-26 06:53:18.390131 ZhaoModel accuracy tf.Tensor(0.78409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:53:18.390218 ZhaoModel epoch 76 from 150
+2021-10-26 06:53:21.216641 ZhaoModel batch 0
+2021-10-26 06:53:59.400495 ZhaoModel batch 20
+2021-10-26 06:54:37.679138 ZhaoModel batch 40
+2021-10-26 06:55:15.897527 ZhaoModel batch 60
+2021-10-26 06:55:54.168816 ZhaoModel batch 80
+2021-10-26 06:56:11.357509 ZhaoModel done. validating....
+2021-10-26 06:56:13.955378 ZhaoModel accuracy tf.Tensor(0.72727275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:56:13.955514 ZhaoModel epoch 77 from 150
+2021-10-26 06:56:16.807262 ZhaoModel batch 0
+2021-10-26 06:56:55.184426 ZhaoModel batch 20
+2021-10-26 06:57:33.404841 ZhaoModel batch 40
+2021-10-26 06:58:11.855244 ZhaoModel batch 60
+2021-10-26 06:58:50.265663 ZhaoModel batch 80
+2021-10-26 06:59:07.719768 ZhaoModel done. validating....
+2021-10-26 06:59:10.256608 ZhaoModel accuracy tf.Tensor(0.4659091, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 06:59:10.256735 ZhaoModel epoch 78 from 150
+2021-10-26 06:59:13.065447 ZhaoModel batch 0
+2021-10-26 06:59:51.195457 ZhaoModel batch 20
+2021-10-26 07:00:29.611994 ZhaoModel batch 40
+2021-10-26 07:01:08.597769 ZhaoModel batch 60
+2021-10-26 07:01:47.035900 ZhaoModel batch 80
+2021-10-26 07:02:04.521704 ZhaoModel done. validating....
+2021-10-26 07:02:07.181755 ZhaoModel accuracy tf.Tensor(0.6363636, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:02:07.181843 ZhaoModel epoch 79 from 150
+2021-10-26 07:02:09.990597 ZhaoModel batch 0
+2021-10-26 07:02:47.860822 ZhaoModel batch 20
+2021-10-26 07:03:26.355374 ZhaoModel batch 40
+2021-10-26 07:04:04.520668 ZhaoModel batch 60
+2021-10-26 07:04:43.133114 ZhaoModel batch 80
+2021-10-26 07:05:00.360244 ZhaoModel done. validating....
+2021-10-26 07:05:02.934456 ZhaoModel accuracy tf.Tensor(0.8068182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:05:02.934555 ZhaoModel epoch 80 from 150
+2021-10-26 07:05:05.745078 ZhaoModel batch 0
+2021-10-26 07:05:43.942369 ZhaoModel batch 20
+2021-10-26 07:06:22.269069 ZhaoModel batch 40
+2021-10-26 07:07:00.570257 ZhaoModel batch 60
+2021-10-26 07:07:38.944195 ZhaoModel batch 80
+2021-10-26 07:07:56.352471 ZhaoModel done. validating....
+2021-10-26 07:07:58.863372 ZhaoModel accuracy tf.Tensor(0.7386364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:07:58.863496 ZhaoModel epoch 81 from 150
+2021-10-26 07:08:01.674641 ZhaoModel batch 0
+2021-10-26 07:08:39.768756 ZhaoModel batch 20
+2021-10-26 07:09:18.110526 ZhaoModel batch 40
+2021-10-26 07:09:57.190858 ZhaoModel batch 60
+2021-10-26 07:10:37.284484 ZhaoModel batch 80
+2021-10-26 07:10:54.488396 ZhaoModel done. validating....
+2021-10-26 07:10:57.034458 ZhaoModel accuracy tf.Tensor(0.6818182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:10:57.034580 ZhaoModel epoch 82 from 150
+2021-10-26 07:10:59.867864 ZhaoModel batch 0
+2021-10-26 07:11:38.011948 ZhaoModel batch 20
+2021-10-26 07:12:16.315616 ZhaoModel batch 40
+2021-10-26 07:12:54.960767 ZhaoModel batch 60
+2021-10-26 07:13:33.181645 ZhaoModel batch 80
+2021-10-26 07:13:50.544129 ZhaoModel done. validating....
+2021-10-26 07:13:53.087728 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:13:53.087866 ZhaoModel epoch 83 from 150
+2021-10-26 07:13:55.990178 ZhaoModel batch 0
+2021-10-26 07:14:34.087908 ZhaoModel batch 20
+2021-10-26 07:15:12.460392 ZhaoModel batch 40
+2021-10-26 07:15:51.222188 ZhaoModel batch 60
+2021-10-26 07:16:29.799197 ZhaoModel batch 80
+2021-10-26 07:16:46.931551 ZhaoModel done. validating....
+2021-10-26 07:16:49.633851 ZhaoModel accuracy tf.Tensor(0.6363636, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:16:49.633939 ZhaoModel epoch 84 from 150
+2021-10-26 07:16:52.596956 ZhaoModel batch 0
+2021-10-26 07:17:30.627183 ZhaoModel batch 20
+2021-10-26 07:18:09.161939 ZhaoModel batch 40
+2021-10-26 07:18:47.402057 ZhaoModel batch 60
+2021-10-26 07:19:25.796308 ZhaoModel batch 80
+2021-10-26 07:19:43.569773 ZhaoModel done. validating....
+2021-10-26 07:19:46.049918 ZhaoModel accuracy tf.Tensor(0.64772725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:19:46.050044 ZhaoModel epoch 85 from 150
+2021-10-26 07:19:48.868257 ZhaoModel batch 0
+2021-10-26 07:20:26.932148 ZhaoModel batch 20
+2021-10-26 07:21:05.463367 ZhaoModel batch 40
+2021-10-26 07:21:43.912447 ZhaoModel batch 60
+2021-10-26 07:22:22.351901 ZhaoModel batch 80
+2021-10-26 07:22:39.753044 ZhaoModel done. validating....
+2021-10-26 07:22:42.246179 ZhaoModel accuracy tf.Tensor(0.54545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:22:42.246341 ZhaoModel epoch 86 from 150
+2021-10-26 07:22:45.146190 ZhaoModel batch 0
+2021-10-26 07:23:23.386242 ZhaoModel batch 20
+2021-10-26 07:24:01.721513 ZhaoModel batch 40
+2021-10-26 07:24:40.246261 ZhaoModel batch 60
+2021-10-26 07:25:19.053791 ZhaoModel batch 80
+2021-10-26 07:25:36.245013 ZhaoModel done. validating....
+2021-10-26 07:25:38.748301 ZhaoModel accuracy tf.Tensor(0.6818182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:25:38.748452 ZhaoModel epoch 87 from 150
+2021-10-26 07:25:41.627636 ZhaoModel batch 0
+2021-10-26 07:26:20.120429 ZhaoModel batch 20
+2021-10-26 07:26:58.346910 ZhaoModel batch 40
+2021-10-26 07:27:37.059047 ZhaoModel batch 60
+2021-10-26 07:28:15.481667 ZhaoModel batch 80
+2021-10-26 07:28:33.128653 ZhaoModel done. validating....
+2021-10-26 07:28:35.668805 ZhaoModel accuracy tf.Tensor(0.45454547, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:28:35.668938 ZhaoModel epoch 88 from 150
+2021-10-26 07:28:38.476748 ZhaoModel batch 0
+2021-10-26 07:29:16.649909 ZhaoModel batch 20
+2021-10-26 07:29:55.421741 ZhaoModel batch 40
+2021-10-26 07:30:33.786848 ZhaoModel batch 60
+2021-10-26 07:31:12.109016 ZhaoModel batch 80
+2021-10-26 07:31:29.480479 ZhaoModel done. validating....
+2021-10-26 07:31:32.015713 ZhaoModel accuracy tf.Tensor(0.71590906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:31:32.015848 ZhaoModel epoch 89 from 150
+2021-10-26 07:31:34.820895 ZhaoModel batch 0
+2021-10-26 07:32:13.181408 ZhaoModel batch 20
+2021-10-26 07:32:51.430923 ZhaoModel batch 40
+2021-10-26 07:33:29.787435 ZhaoModel batch 60
+2021-10-26 07:34:08.561069 ZhaoModel batch 80
+2021-10-26 07:34:25.700725 ZhaoModel done. validating....
+2021-10-26 07:34:28.166891 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:34:28.167023 ZhaoModel epoch 90 from 150
+2021-10-26 07:34:31.056875 ZhaoModel batch 0
+2021-10-26 07:35:09.726542 ZhaoModel batch 20
+2021-10-26 07:35:48.165867 ZhaoModel batch 40
+2021-10-26 07:36:26.577769 ZhaoModel batch 60
+2021-10-26 07:37:04.980294 ZhaoModel batch 80
+2021-10-26 07:37:22.071257 ZhaoModel done. validating....
+2021-10-26 07:37:24.627108 ZhaoModel accuracy tf.Tensor(0.64772725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:37:24.627252 ZhaoModel epoch 91 from 150
+2021-10-26 07:37:27.496703 ZhaoModel batch 0
+2021-10-26 07:38:05.664141 ZhaoModel batch 20
+2021-10-26 07:38:44.222334 ZhaoModel batch 40
+2021-10-26 07:39:22.665487 ZhaoModel batch 60
+2021-10-26 07:40:00.980152 ZhaoModel batch 80
+2021-10-26 07:40:18.408780 ZhaoModel done. validating....
+2021-10-26 07:40:21.033552 ZhaoModel accuracy tf.Tensor(0.79545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:40:21.033741 ZhaoModel epoch 92 from 150
+2021-10-26 07:40:23.862258 ZhaoModel batch 0
+2021-10-26 07:41:01.971277 ZhaoModel batch 20
+2021-10-26 07:41:40.388358 ZhaoModel batch 40
+2021-10-26 07:42:20.865645 ZhaoModel batch 60
+2021-10-26 07:42:59.274256 ZhaoModel batch 80
+2021-10-26 07:43:17.076024 ZhaoModel done. validating....
+2021-10-26 07:43:19.596180 ZhaoModel accuracy tf.Tensor(0.7613636, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:43:19.596350 ZhaoModel epoch 93 from 150
+2021-10-26 07:43:22.434047 ZhaoModel batch 0
+2021-10-26 07:44:00.319326 ZhaoModel batch 20
+2021-10-26 07:44:39.104738 ZhaoModel batch 40
+2021-10-26 07:45:17.455280 ZhaoModel batch 60
+2021-10-26 07:45:55.691002 ZhaoModel batch 80
+2021-10-26 07:46:13.026757 ZhaoModel done. validating....
+2021-10-26 07:46:15.513187 ZhaoModel accuracy tf.Tensor(0.6136364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:46:15.513344 ZhaoModel epoch 94 from 150
+2021-10-26 07:46:18.299901 ZhaoModel batch 0
+2021-10-26 07:46:56.399205 ZhaoModel batch 20
+2021-10-26 07:47:34.982157 ZhaoModel batch 40
+2021-10-26 07:48:13.464994 ZhaoModel batch 60
+2021-10-26 07:48:51.847878 ZhaoModel batch 80
+2021-10-26 07:49:09.369927 ZhaoModel done. validating....
+2021-10-26 07:49:11.855286 ZhaoModel accuracy tf.Tensor(0.6931818, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:49:11.855420 ZhaoModel epoch 95 from 150
+2021-10-26 07:49:14.722706 ZhaoModel batch 0
+2021-10-26 07:49:52.967491 ZhaoModel batch 20
+2021-10-26 07:50:31.086991 ZhaoModel batch 40
+2021-10-26 07:51:09.666466 ZhaoModel batch 60
+2021-10-26 07:51:48.069632 ZhaoModel batch 80
+2021-10-26 07:52:05.344138 ZhaoModel done. validating....
+2021-10-26 07:52:07.864384 ZhaoModel accuracy tf.Tensor(0.65909094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.82954544, shape=(), dtype=float32)
+2021-10-26 07:52:07.864506 ZhaoModel epoch 96 from 150
+2021-10-26 07:52:10.755939 ZhaoModel batch 0
+2021-10-26 07:52:49.060229 ZhaoModel batch 20
+2021-10-26 07:53:27.834013 ZhaoModel batch 40
+2021-10-26 07:54:06.203319 ZhaoModel batch 60
+2021-10-26 07:54:44.652755 ZhaoModel batch 80
+2021-10-26 07:55:01.919621 ZhaoModel done. validating....
+2021-10-26 07:55:04.587518 ZhaoModel Best Accuracy so far tf.Tensor(0.85227275, shape=(), dtype=float32)
+2021-10-26 07:55:04.587663 ZhaoModel epoch 97 from 150
+2021-10-26 07:55:07.444709 ZhaoModel batch 0
+2021-10-26 07:55:45.546494 ZhaoModel batch 20
+2021-10-26 07:56:24.261424 ZhaoModel batch 40
+2021-10-26 07:57:02.648830 ZhaoModel batch 60
+2021-10-26 07:57:41.024923 ZhaoModel batch 80
+2021-10-26 07:57:58.199335 ZhaoModel done. validating....
+2021-10-26 07:58:00.672949 ZhaoModel accuracy tf.Tensor(0.60227275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.85227275, shape=(), dtype=float32)
+2021-10-26 07:58:00.673081 ZhaoModel epoch 98 from 150
+2021-10-26 07:58:03.542405 ZhaoModel batch 0
+2021-10-26 07:58:41.853672 ZhaoModel batch 20
+2021-10-26 07:59:20.419436 ZhaoModel batch 40
+2021-10-26 07:59:58.555658 ZhaoModel batch 60
+2021-10-26 08:00:37.153773 ZhaoModel batch 80
+2021-10-26 08:00:54.287005 ZhaoModel done. validating....
+2021-10-26 08:00:56.788893 ZhaoModel accuracy tf.Tensor(0.72727275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.85227275, shape=(), dtype=float32)
+2021-10-26 08:00:56.789036 ZhaoModel epoch 99 from 150
+2021-10-26 08:00:59.584913 ZhaoModel batch 0
+2021-10-26 08:01:37.792790 ZhaoModel batch 20
+2021-10-26 08:02:16.263894 ZhaoModel batch 40
+2021-10-26 08:02:54.781805 ZhaoModel batch 60
+2021-10-26 08:03:33.106281 ZhaoModel batch 80
+2021-10-26 08:03:50.288644 ZhaoModel done. validating....
+2021-10-26 08:03:52.808445 ZhaoModel accuracy tf.Tensor(0.5681818, shape=(), dtype=float32) best_accuracy tf.Tensor(0.85227275, shape=(), dtype=float32)
+2021-10-26 08:03:52.808606 ZhaoModel epoch 100 from 150
+2021-10-26 08:03:55.679721 ZhaoModel batch 0
+2021-10-26 08:04:33.987073 ZhaoModel batch 20
+2021-10-26 08:05:12.456150 ZhaoModel batch 40
+2021-10-26 08:05:51.195765 ZhaoModel batch 60
+2021-10-26 08:06:29.414670 ZhaoModel batch 80
+2021-10-26 08:06:46.767559 ZhaoModel done. validating....
+2021-10-26 08:06:49.264810 ZhaoModel accuracy tf.Tensor(0.75, shape=(), dtype=float32) best_accuracy tf.Tensor(0.85227275, shape=(), dtype=float32)
+2021-10-26 08:06:49.264966 ZhaoModel epoch 101 from 150
+2021-10-26 08:06:52.216816 ZhaoModel batch 0
+2021-10-26 08:07:30.536826 ZhaoModel batch 20
+2021-10-26 08:08:09.218020 ZhaoModel batch 40
+2021-10-26 08:08:48.307361 ZhaoModel batch 60
+2021-10-26 08:09:26.637094 ZhaoModel batch 80
+2021-10-26 08:09:43.682384 ZhaoModel done. validating....
+2021-10-26 08:09:46.224324 ZhaoModel accuracy tf.Tensor(0.72727275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.85227275, shape=(), dtype=float32)
+2021-10-26 08:09:46.224436 ZhaoModel epoch 102 from 150
+2021-10-26 08:09:49.030911 ZhaoModel batch 0
+2021-10-26 08:10:27.245286 ZhaoModel batch 20
+2021-10-26 08:11:05.575178 ZhaoModel batch 40
+2021-10-26 08:11:43.843546 ZhaoModel batch 60
+2021-10-26 08:12:22.026159 ZhaoModel batch 80
+2021-10-26 08:12:39.250035 ZhaoModel done. validating....
+2021-10-26 08:12:41.769398 ZhaoModel Best Accuracy so far tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:12:41.769492 ZhaoModel epoch 103 from 150
+2021-10-26 08:12:44.619995 ZhaoModel batch 0
+2021-10-26 08:13:23.394620 ZhaoModel batch 20
+2021-10-26 08:14:01.782778 ZhaoModel batch 40
+2021-10-26 08:14:42.090193 ZhaoModel batch 60
+2021-10-26 08:15:20.530607 ZhaoModel batch 80
+2021-10-26 08:15:37.744023 ZhaoModel done. validating....
+2021-10-26 08:15:40.339812 ZhaoModel accuracy tf.Tensor(0.85227275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:15:40.339956 ZhaoModel epoch 104 from 150
+2021-10-26 08:15:43.281804 ZhaoModel batch 0
+2021-10-26 08:16:21.472299 ZhaoModel batch 20
+2021-10-26 08:17:00.000283 ZhaoModel batch 40
+2021-10-26 08:17:38.334740 ZhaoModel batch 60
+2021-10-26 08:18:16.816895 ZhaoModel batch 80
+2021-10-26 08:18:34.031664 ZhaoModel done. validating....
+2021-10-26 08:18:36.509731 ZhaoModel accuracy tf.Tensor(0.8181818, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:18:36.509874 ZhaoModel epoch 105 from 150
+2021-10-26 08:18:39.406710 ZhaoModel batch 0
+2021-10-26 08:19:17.614974 ZhaoModel batch 20
+2021-10-26 08:19:56.194839 ZhaoModel batch 40
+2021-10-26 08:20:34.456996 ZhaoModel batch 60
+2021-10-26 08:21:13.039835 ZhaoModel batch 80
+2021-10-26 08:21:30.325789 ZhaoModel done. validating....
+2021-10-26 08:21:32.786644 ZhaoModel accuracy tf.Tensor(0.59090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:21:32.786796 ZhaoModel epoch 106 from 150
+2021-10-26 08:21:35.748014 ZhaoModel batch 0
+2021-10-26 08:22:14.070180 ZhaoModel batch 20
+2021-10-26 08:22:52.378904 ZhaoModel batch 40
+2021-10-26 08:23:30.724030 ZhaoModel batch 60
+2021-10-26 08:24:09.169209 ZhaoModel batch 80
+2021-10-26 08:24:26.299467 ZhaoModel done. validating....
+2021-10-26 08:24:28.831598 ZhaoModel accuracy tf.Tensor(0.72727275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:24:28.831736 ZhaoModel epoch 107 from 150
+2021-10-26 08:24:31.781594 ZhaoModel batch 0
+2021-10-26 08:25:09.881158 ZhaoModel batch 20
+2021-10-26 08:25:48.197576 ZhaoModel batch 40
+2021-10-26 08:26:26.549072 ZhaoModel batch 60
+2021-10-26 08:27:05.181124 ZhaoModel batch 80
+2021-10-26 08:27:23.015596 ZhaoModel done. validating....
+2021-10-26 08:27:25.470822 ZhaoModel accuracy tf.Tensor(0.57954544, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:27:25.470969 ZhaoModel epoch 108 from 150
+2021-10-26 08:27:28.417776 ZhaoModel batch 0
+2021-10-26 08:28:06.427411 ZhaoModel batch 20
+2021-10-26 08:28:44.895648 ZhaoModel batch 40
+2021-10-26 08:29:23.472456 ZhaoModel batch 60
+2021-10-26 08:30:01.963172 ZhaoModel batch 80
+2021-10-26 08:30:19.295818 ZhaoModel done. validating....
+2021-10-26 08:30:21.803980 ZhaoModel accuracy tf.Tensor(0.78409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:30:21.804114 ZhaoModel epoch 109 from 150
+2021-10-26 08:30:24.630649 ZhaoModel batch 0
+2021-10-26 08:31:02.389203 ZhaoModel batch 20
+2021-10-26 08:31:41.318810 ZhaoModel batch 40
+2021-10-26 08:32:19.462445 ZhaoModel batch 60
+2021-10-26 08:32:58.049961 ZhaoModel batch 80
+2021-10-26 08:33:15.221551 ZhaoModel done. validating....
+2021-10-26 08:33:17.721721 ZhaoModel accuracy tf.Tensor(0.7386364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:33:17.721853 ZhaoModel epoch 110 from 150
+2021-10-26 08:33:20.538933 ZhaoModel batch 0
+2021-10-26 08:33:58.843021 ZhaoModel batch 20
+2021-10-26 08:34:37.496864 ZhaoModel batch 40
+2021-10-26 08:35:15.867410 ZhaoModel batch 60
+2021-10-26 08:35:54.222212 ZhaoModel batch 80
+2021-10-26 08:36:11.759764 ZhaoModel done. validating....
+2021-10-26 08:36:14.226185 ZhaoModel accuracy tf.Tensor(0.47727272, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:36:14.226337 ZhaoModel epoch 111 from 150
+2021-10-26 08:36:17.103953 ZhaoModel batch 0
+2021-10-26 08:36:55.486331 ZhaoModel batch 20
+2021-10-26 08:37:33.842231 ZhaoModel batch 40
+2021-10-26 08:38:12.266879 ZhaoModel batch 60
+2021-10-26 08:38:50.681599 ZhaoModel batch 80
+2021-10-26 08:39:07.869040 ZhaoModel done. validating....
+2021-10-26 08:39:10.398662 ZhaoModel accuracy tf.Tensor(0.65909094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:39:10.398793 ZhaoModel epoch 112 from 150
+2021-10-26 08:39:13.285980 ZhaoModel batch 0
+2021-10-26 08:39:51.566559 ZhaoModel batch 20
+2021-10-26 08:40:29.839586 ZhaoModel batch 40
+2021-10-26 08:41:08.242667 ZhaoModel batch 60
+2021-10-26 08:41:46.617747 ZhaoModel batch 80
+2021-10-26 08:42:03.784021 ZhaoModel done. validating....
+2021-10-26 08:42:06.436494 ZhaoModel accuracy tf.Tensor(0.8181818, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:42:06.436663 ZhaoModel epoch 113 from 150
+2021-10-26 08:42:09.358647 ZhaoModel batch 0
+2021-10-26 08:42:47.489365 ZhaoModel batch 20
+2021-10-26 08:43:25.753122 ZhaoModel batch 40
+2021-10-26 08:44:04.059948 ZhaoModel batch 60
+2021-10-26 08:44:42.852347 ZhaoModel batch 80
+2021-10-26 08:44:59.976033 ZhaoModel done. validating....
+2021-10-26 08:45:02.454872 ZhaoModel accuracy tf.Tensor(0.8068182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:45:02.455027 ZhaoModel epoch 114 from 150
+2021-10-26 08:45:05.383867 ZhaoModel batch 0
+2021-10-26 08:45:43.401006 ZhaoModel batch 20
+2021-10-26 08:46:23.675017 ZhaoModel batch 40
+2021-10-26 08:47:02.013085 ZhaoModel batch 60
+2021-10-26 08:47:40.802283 ZhaoModel batch 80
+2021-10-26 08:47:57.960500 ZhaoModel done. validating....
+2021-10-26 08:48:00.616016 ZhaoModel accuracy tf.Tensor(0.78409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:48:00.616159 ZhaoModel epoch 115 from 150
+2021-10-26 08:48:03.437142 ZhaoModel batch 0
+2021-10-26 08:48:41.535907 ZhaoModel batch 20
+2021-10-26 08:49:20.021452 ZhaoModel batch 40
+2021-10-26 08:49:58.415116 ZhaoModel batch 60
+2021-10-26 08:50:37.035983 ZhaoModel batch 80
+2021-10-26 08:50:54.248344 ZhaoModel done. validating....
+2021-10-26 08:50:56.765099 ZhaoModel accuracy tf.Tensor(0.53409094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:50:56.765239 ZhaoModel epoch 116 from 150
+2021-10-26 08:50:59.672180 ZhaoModel batch 0
+2021-10-26 08:51:38.078656 ZhaoModel batch 20
+2021-10-26 08:52:16.252921 ZhaoModel batch 40
+2021-10-26 08:52:54.969169 ZhaoModel batch 60
+2021-10-26 08:53:33.996875 ZhaoModel batch 80
+2021-10-26 08:53:51.050225 ZhaoModel done. validating....
+2021-10-26 08:53:53.521598 ZhaoModel accuracy tf.Tensor(0.6818182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:53:53.521742 ZhaoModel epoch 117 from 150
+2021-10-26 08:53:56.451998 ZhaoModel batch 0
+2021-10-26 08:54:34.925743 ZhaoModel batch 20
+2021-10-26 08:55:13.234405 ZhaoModel batch 40
+2021-10-26 08:55:51.542240 ZhaoModel batch 60
+2021-10-26 08:56:29.795390 ZhaoModel batch 80
+2021-10-26 08:56:47.322018 ZhaoModel done. validating....
+2021-10-26 08:56:49.804917 ZhaoModel accuracy tf.Tensor(0.7386364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:56:49.805085 ZhaoModel epoch 118 from 150
+2021-10-26 08:56:52.665233 ZhaoModel batch 0
+2021-10-26 08:57:30.780749 ZhaoModel batch 20
+2021-10-26 08:58:09.553272 ZhaoModel batch 40
+2021-10-26 08:58:48.043972 ZhaoModel batch 60
+2021-10-26 08:59:26.258961 ZhaoModel batch 80
+2021-10-26 08:59:43.447358 ZhaoModel done. validating....
+2021-10-26 08:59:45.950578 ZhaoModel accuracy tf.Tensor(0.79545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 08:59:45.950744 ZhaoModel epoch 119 from 150
+2021-10-26 08:59:48.770330 ZhaoModel batch 0
+2021-10-26 09:00:26.906357 ZhaoModel batch 20
+2021-10-26 09:01:05.442582 ZhaoModel batch 40
+2021-10-26 09:01:43.866000 ZhaoModel batch 60
+2021-10-26 09:02:22.459314 ZhaoModel batch 80
+2021-10-26 09:02:39.691952 ZhaoModel done. validating....
+2021-10-26 09:02:42.299249 ZhaoModel accuracy tf.Tensor(0.67045456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:02:42.299396 ZhaoModel epoch 120 from 150
+2021-10-26 09:02:45.130868 ZhaoModel batch 0
+2021-10-26 09:03:23.209479 ZhaoModel batch 20
+2021-10-26 09:04:01.433730 ZhaoModel batch 40
+2021-10-26 09:04:39.673536 ZhaoModel batch 60
+2021-10-26 09:05:18.238381 ZhaoModel batch 80
+2021-10-26 09:05:35.618458 ZhaoModel done. validating....
+2021-10-26 09:05:38.183357 ZhaoModel accuracy tf.Tensor(0.5568182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:05:38.183506 ZhaoModel epoch 121 from 150
+2021-10-26 09:05:41.089556 ZhaoModel batch 0
+2021-10-26 09:06:19.277474 ZhaoModel batch 20
+2021-10-26 09:06:57.808435 ZhaoModel batch 40
+2021-10-26 09:07:36.106387 ZhaoModel batch 60
+2021-10-26 09:08:14.506115 ZhaoModel batch 80
+2021-10-26 09:08:31.674114 ZhaoModel done. validating....
+2021-10-26 09:08:34.152470 ZhaoModel accuracy tf.Tensor(0.7613636, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:08:34.152560 ZhaoModel epoch 122 from 150
+2021-10-26 09:08:36.975877 ZhaoModel batch 0
+2021-10-26 09:09:15.322649 ZhaoModel batch 20
+2021-10-26 09:09:53.624531 ZhaoModel batch 40
+2021-10-26 09:10:32.134045 ZhaoModel batch 60
+2021-10-26 09:11:10.695741 ZhaoModel batch 80
+2021-10-26 09:11:28.326171 ZhaoModel done. validating....
+2021-10-26 09:11:30.946465 ZhaoModel accuracy tf.Tensor(0.67045456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:11:30.946547 ZhaoModel epoch 123 from 150
+2021-10-26 09:11:33.775376 ZhaoModel batch 0
+2021-10-26 09:12:11.969673 ZhaoModel batch 20
+2021-10-26 09:12:50.141005 ZhaoModel batch 40
+2021-10-26 09:13:28.376134 ZhaoModel batch 60
+2021-10-26 09:14:07.040384 ZhaoModel batch 80
+2021-10-26 09:14:24.256265 ZhaoModel done. validating....
+2021-10-26 09:14:26.856406 ZhaoModel accuracy tf.Tensor(0.8181818, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:14:26.856547 ZhaoModel epoch 124 from 150
+2021-10-26 09:14:29.714263 ZhaoModel batch 0
+2021-10-26 09:15:07.921520 ZhaoModel batch 20
+2021-10-26 09:15:46.491684 ZhaoModel batch 40
+2021-10-26 09:16:24.764359 ZhaoModel batch 60
+2021-10-26 09:17:03.114351 ZhaoModel batch 80
+2021-10-26 09:17:20.524334 ZhaoModel done. validating....
+2021-10-26 09:17:23.053273 ZhaoModel accuracy tf.Tensor(0.79545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:17:23.053424 ZhaoModel epoch 125 from 150
+2021-10-26 09:17:26.027494 ZhaoModel batch 0
+2021-10-26 09:18:06.253194 ZhaoModel batch 20
+2021-10-26 09:18:44.410644 ZhaoModel batch 40
+2021-10-26 09:19:23.045018 ZhaoModel batch 60
+2021-10-26 09:20:01.286286 ZhaoModel batch 80
+2021-10-26 09:20:18.699347 ZhaoModel done. validating....
+2021-10-26 09:20:21.255520 ZhaoModel accuracy tf.Tensor(0.7386364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:20:21.255672 ZhaoModel epoch 126 from 150
+2021-10-26 09:20:24.122512 ZhaoModel batch 0
+2021-10-26 09:21:02.323735 ZhaoModel batch 20
+2021-10-26 09:21:40.551916 ZhaoModel batch 40
+2021-10-26 09:22:18.630566 ZhaoModel batch 60
+2021-10-26 09:22:57.256535 ZhaoModel batch 80
+2021-10-26 09:23:14.405215 ZhaoModel done. validating....
+2021-10-26 09:23:16.967410 ZhaoModel accuracy tf.Tensor(0.52272725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:23:16.967592 ZhaoModel epoch 127 from 150
+2021-10-26 09:23:19.920823 ZhaoModel batch 0
+2021-10-26 09:23:58.031914 ZhaoModel batch 20
+2021-10-26 09:24:36.400172 ZhaoModel batch 40
+2021-10-26 09:25:14.974049 ZhaoModel batch 60
+2021-10-26 09:25:53.129304 ZhaoModel batch 80
+2021-10-26 09:26:10.641382 ZhaoModel done. validating....
+2021-10-26 09:26:13.148133 ZhaoModel accuracy tf.Tensor(0.77272725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:26:13.148288 ZhaoModel epoch 128 from 150
+2021-10-26 09:26:16.095998 ZhaoModel batch 0
+2021-10-26 09:26:54.144504 ZhaoModel batch 20
+2021-10-26 09:27:32.440018 ZhaoModel batch 40
+2021-10-26 09:28:10.945798 ZhaoModel batch 60
+2021-10-26 09:28:49.315680 ZhaoModel batch 80
+2021-10-26 09:29:07.104796 ZhaoModel done. validating....
+2021-10-26 09:29:09.686494 ZhaoModel accuracy tf.Tensor(0.625, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:29:09.686672 ZhaoModel epoch 129 from 150
+2021-10-26 09:29:12.676802 ZhaoModel batch 0
+2021-10-26 09:29:50.874770 ZhaoModel batch 20
+2021-10-26 09:30:28.975094 ZhaoModel batch 40
+2021-10-26 09:31:07.505296 ZhaoModel batch 60
+2021-10-26 09:31:46.211547 ZhaoModel batch 80
+2021-10-26 09:32:03.442393 ZhaoModel done. validating....
+2021-10-26 09:32:05.951728 ZhaoModel accuracy tf.Tensor(0.70454544, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:32:05.951878 ZhaoModel epoch 130 from 150
+2021-10-26 09:32:08.844609 ZhaoModel batch 0
+2021-10-26 09:32:47.143499 ZhaoModel batch 20
+2021-10-26 09:33:25.250789 ZhaoModel batch 40
+2021-10-26 09:34:03.735589 ZhaoModel batch 60
+2021-10-26 09:34:42.271094 ZhaoModel batch 80
+2021-10-26 09:34:59.410524 ZhaoModel done. validating....
+2021-10-26 09:35:02.002602 ZhaoModel accuracy tf.Tensor(0.71590906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:35:02.002732 ZhaoModel epoch 131 from 150
+2021-10-26 09:35:04.816099 ZhaoModel batch 0
+2021-10-26 09:35:43.017594 ZhaoModel batch 20
+2021-10-26 09:36:21.321105 ZhaoModel batch 40
+2021-10-26 09:36:59.772074 ZhaoModel batch 60
+2021-10-26 09:37:38.065458 ZhaoModel batch 80
+2021-10-26 09:37:55.295102 ZhaoModel done. validating....
+2021-10-26 09:37:57.806402 ZhaoModel accuracy tf.Tensor(0.79545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:37:57.806633 ZhaoModel epoch 132 from 150
+2021-10-26 09:38:00.732986 ZhaoModel batch 0
+2021-10-26 09:38:38.874808 ZhaoModel batch 20
+2021-10-26 09:39:17.330818 ZhaoModel batch 40
+2021-10-26 09:39:55.864252 ZhaoModel batch 60
+2021-10-26 09:40:34.198226 ZhaoModel batch 80
+2021-10-26 09:40:51.399402 ZhaoModel done. validating....
+2021-10-26 09:40:54.093962 ZhaoModel accuracy tf.Tensor(0.7613636, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:40:54.094111 ZhaoModel epoch 133 from 150
+2021-10-26 09:40:57.047451 ZhaoModel batch 0
+2021-10-26 09:41:35.082170 ZhaoModel batch 20
+2021-10-26 09:42:13.441530 ZhaoModel batch 40
+2021-10-26 09:42:51.806067 ZhaoModel batch 60
+2021-10-26 09:43:30.285465 ZhaoModel batch 80
+2021-10-26 09:43:47.402720 ZhaoModel done. validating....
+2021-10-26 09:43:49.980795 ZhaoModel accuracy tf.Tensor(0.79545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:43:49.980918 ZhaoModel epoch 134 from 150
+2021-10-26 09:43:52.868786 ZhaoModel batch 0
+2021-10-26 09:44:30.800649 ZhaoModel batch 20
+2021-10-26 09:45:09.227164 ZhaoModel batch 40
+2021-10-26 09:45:47.545511 ZhaoModel batch 60
+2021-10-26 09:46:25.776858 ZhaoModel batch 80
+2021-10-26 09:46:43.146367 ZhaoModel done. validating....
+2021-10-26 09:46:45.704299 ZhaoModel accuracy tf.Tensor(0.47727272, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:46:45.704449 ZhaoModel epoch 135 from 150
+2021-10-26 09:46:48.583623 ZhaoModel batch 0
+2021-10-26 09:47:26.939770 ZhaoModel batch 20
+2021-10-26 09:48:05.701031 ZhaoModel batch 40
+2021-10-26 09:48:43.951198 ZhaoModel batch 60
+2021-10-26 09:49:22.169190 ZhaoModel batch 80
+2021-10-26 09:49:39.536139 ZhaoModel done. validating....
+2021-10-26 09:49:42.024318 ZhaoModel accuracy tf.Tensor(0.8068182, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:49:42.024444 ZhaoModel epoch 136 from 150
+2021-10-26 09:49:44.822183 ZhaoModel batch 0
+2021-10-26 09:50:24.758400 ZhaoModel batch 20
+2021-10-26 09:51:03.140322 ZhaoModel batch 40
+2021-10-26 09:51:42.061662 ZhaoModel batch 60
+2021-10-26 09:52:20.626422 ZhaoModel batch 80
+2021-10-26 09:52:37.647779 ZhaoModel done. validating....
+2021-10-26 09:52:40.217576 ZhaoModel accuracy tf.Tensor(0.84090906, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:52:40.217695 ZhaoModel epoch 137 from 150
+2021-10-26 09:52:43.100420 ZhaoModel batch 0
+2021-10-26 09:53:21.539391 ZhaoModel batch 20
+2021-10-26 09:54:00.179859 ZhaoModel batch 40
+2021-10-26 09:54:38.333768 ZhaoModel batch 60
+2021-10-26 09:55:16.626554 ZhaoModel batch 80
+2021-10-26 09:55:33.933497 ZhaoModel done. validating....
+2021-10-26 09:55:36.437002 ZhaoModel accuracy tf.Tensor(0.72727275, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:55:36.437154 ZhaoModel epoch 138 from 150
+2021-10-26 09:55:39.352510 ZhaoModel batch 0
+2021-10-26 09:56:17.735147 ZhaoModel batch 20
+2021-10-26 09:56:55.838747 ZhaoModel batch 40
+2021-10-26 09:57:34.386095 ZhaoModel batch 60
+2021-10-26 09:58:12.725842 ZhaoModel batch 80
+2021-10-26 09:58:29.847465 ZhaoModel done. validating....
+2021-10-26 09:58:32.442106 ZhaoModel accuracy tf.Tensor(0.79545456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 09:58:32.442245 ZhaoModel epoch 139 from 150
+2021-10-26 09:58:35.267488 ZhaoModel batch 0
+2021-10-26 09:59:13.356307 ZhaoModel batch 20
+2021-10-26 09:59:51.682719 ZhaoModel batch 40
+2021-10-26 10:00:30.360018 ZhaoModel batch 60
+2021-10-26 10:01:08.815591 ZhaoModel batch 80
+2021-10-26 10:01:25.968737 ZhaoModel done. validating....
+2021-10-26 10:01:28.536165 ZhaoModel accuracy tf.Tensor(0.77272725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:01:28.536328 ZhaoModel epoch 140 from 150
+2021-10-26 10:01:31.412351 ZhaoModel batch 0
+2021-10-26 10:02:09.498808 ZhaoModel batch 20
+2021-10-26 10:02:47.792118 ZhaoModel batch 40
+2021-10-26 10:03:26.310993 ZhaoModel batch 60
+2021-10-26 10:04:04.598150 ZhaoModel batch 80
+2021-10-26 10:04:22.589437 ZhaoModel done. validating....
+2021-10-26 10:04:25.123421 ZhaoModel accuracy tf.Tensor(0.57954544, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:04:25.123630 ZhaoModel epoch 141 from 150
+2021-10-26 10:04:27.957018 ZhaoModel batch 0
+2021-10-26 10:05:06.013357 ZhaoModel batch 20
+2021-10-26 10:05:44.331878 ZhaoModel batch 40
+2021-10-26 10:06:23.221218 ZhaoModel batch 60
+2021-10-26 10:07:01.391194 ZhaoModel batch 80
+2021-10-26 10:07:18.622607 ZhaoModel done. validating....
+2021-10-26 10:07:21.088178 ZhaoModel accuracy tf.Tensor(0.7386364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:07:21.088268 ZhaoModel epoch 142 from 150
+2021-10-26 10:07:24.035724 ZhaoModel batch 0
+2021-10-26 10:08:02.112278 ZhaoModel batch 20
+2021-10-26 10:08:40.392651 ZhaoModel batch 40
+2021-10-26 10:09:18.989922 ZhaoModel batch 60
+2021-10-26 10:09:57.457679 ZhaoModel batch 80
+2021-10-26 10:10:14.691415 ZhaoModel done. validating....
+2021-10-26 10:10:17.169959 ZhaoModel accuracy tf.Tensor(0.67045456, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:10:17.170092 ZhaoModel epoch 143 from 150
+2021-10-26 10:10:19.970505 ZhaoModel batch 0
+2021-10-26 10:10:58.583691 ZhaoModel batch 20
+2021-10-26 10:11:36.737402 ZhaoModel batch 40
+2021-10-26 10:12:15.323187 ZhaoModel batch 60
+2021-10-26 10:12:53.734451 ZhaoModel batch 80
+2021-10-26 10:13:11.033556 ZhaoModel done. validating....
+2021-10-26 10:13:13.525911 ZhaoModel accuracy tf.Tensor(0.65909094, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:13:13.526051 ZhaoModel epoch 144 from 150
+2021-10-26 10:13:16.333668 ZhaoModel batch 0
+2021-10-26 10:13:54.361923 ZhaoModel batch 20
+2021-10-26 10:14:32.869463 ZhaoModel batch 40
+2021-10-26 10:15:11.028744 ZhaoModel batch 60
+2021-10-26 10:15:49.903696 ZhaoModel batch 80
+2021-10-26 10:16:07.071451 ZhaoModel done. validating....
+2021-10-26 10:16:09.635902 ZhaoModel accuracy tf.Tensor(0.77272725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:16:09.636033 ZhaoModel epoch 145 from 150
+2021-10-26 10:16:12.464747 ZhaoModel batch 0
+2021-10-26 10:16:50.886126 ZhaoModel batch 20
+2021-10-26 10:17:29.128724 ZhaoModel batch 40
+2021-10-26 10:18:07.665858 ZhaoModel batch 60
+2021-10-26 10:18:46.010185 ZhaoModel batch 80
+2021-10-26 10:19:03.219755 ZhaoModel done. validating....
+2021-10-26 10:19:05.802667 ZhaoModel accuracy tf.Tensor(0.75, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:19:05.802809 ZhaoModel epoch 146 from 150
+2021-10-26 10:19:08.678466 ZhaoModel batch 0
+2021-10-26 10:19:47.148985 ZhaoModel batch 20
+2021-10-26 10:20:25.200315 ZhaoModel batch 40
+2021-10-26 10:21:03.591125 ZhaoModel batch 60
+2021-10-26 10:21:42.050598 ZhaoModel batch 80
+2021-10-26 10:22:01.356236 ZhaoModel done. validating....
+2021-10-26 10:22:03.966267 ZhaoModel accuracy tf.Tensor(0.77272725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:22:03.966419 ZhaoModel epoch 147 from 150
+2021-10-26 10:22:06.755358 ZhaoModel batch 0
+2021-10-26 10:22:44.900945 ZhaoModel batch 20
+2021-10-26 10:23:23.346859 ZhaoModel batch 40
+2021-10-26 10:24:01.600132 ZhaoModel batch 60
+2021-10-26 10:24:39.724876 ZhaoModel batch 80
+2021-10-26 10:24:57.004349 ZhaoModel done. validating....
+2021-10-26 10:24:59.500456 ZhaoModel accuracy tf.Tensor(0.7386364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:24:59.500582 ZhaoModel epoch 148 from 150
+2021-10-26 10:25:02.322609 ZhaoModel batch 0
+2021-10-26 10:25:40.396512 ZhaoModel batch 20
+2021-10-26 10:26:18.612799 ZhaoModel batch 40
+2021-10-26 10:26:57.125625 ZhaoModel batch 60
+2021-10-26 10:27:35.618164 ZhaoModel batch 80
+2021-10-26 10:27:52.662244 ZhaoModel done. validating....
+2021-10-26 10:27:55.198627 ZhaoModel accuracy tf.Tensor(0.77272725, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:27:55.198739 ZhaoModel epoch 149 from 150
+2021-10-26 10:27:58.022386 ZhaoModel batch 0
+2021-10-26 10:28:36.025634 ZhaoModel batch 20
+2021-10-26 10:29:14.458092 ZhaoModel batch 40
+2021-10-26 10:29:52.728568 ZhaoModel batch 60
+2021-10-26 10:30:30.952510 ZhaoModel batch 80
+2021-10-26 10:30:48.329953 ZhaoModel done. validating....
+2021-10-26 10:30:50.947568 ZhaoModel accuracy tf.Tensor(0.7386364, shape=(), dtype=float32) best_accuracy tf.Tensor(0.875, shape=(), dtype=float32)
+2021-10-26 10:30:50.982246 ZhaoModel gathering final results
+Metrics for  VALIDATE {'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.52738756>, 'accuracy': <tf.Tensor: shape=(), dtype=float32, numpy=0.875>}
+Metrics for  TRAIN {'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.16929592>, 'accuracy': <tf.Tensor: shape=(), dtype=float32, numpy=0.93472224>}
+Metrics for  TEST {'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.35776094>, 'accuracy': <tf.Tensor: shape=(), dtype=float32, numpy=0.8181818>}
+2021-10-26 10:33:07.338456 Plotter data preparing
+2021-10-26 10:33:07.597014 Plotter Reduce dimensionality
+2021-10-26 10:33:07.609807 Plotter PCA calculation
+2021-10-26 10:33:08.795421 Plotter Explained variation per PC [0.5837322  0.36490387 0.04427072]
+2021-10-26 10:33:08.887949 Plotter t-SNE calculation
+[t-SNE] Computing 121 nearest neighbors...
+[t-SNE] Indexed 720 samples in 0.110s...
+[t-SNE] Computed neighbors for 720 samples in 0.990s...
+[t-SNE] Computed conditional probabilities for sample 720 / 720
+[t-SNE] Mean sigma: 0.365235
+[t-SNE] KL divergence after 250 iterations with early exaggeration: 57.540890
+[t-SNE] KL divergence after 300 iterations: 0.590626
+2021-10-26 10:33:11.050886 Plotter calculations finished
+2021-10-26 10:33:11.051679 Plotter 2 Comp plot
+2021-10-26 10:33:19.110354 Plotter 3 Comp plot
+2021-10-26 10:33:19.747353 ZhaoModel training complete
+
