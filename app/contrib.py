@@ -18,14 +18,14 @@ class BasicBlock(tf.keras.layers.Layer):
         self.conv2 = tf.keras.layers.Conv2D(filters=filter_num,
                                             kernel_size=kernel_size,
                                             strides=1,
- #                                           kernel_regularizer=tf.keras.regularizers.l2(l2),
+#                                            kernel_regularizer=tf.keras.regularizers.l2(l2),
                                             padding="same")
         self.bn2 = tf.keras.layers.BatchNormalization()
         if stride != 1:
             self.downsample = tf.keras.Sequential()
             self.downsample.add(tf.keras.layers.Conv2D(filters=filter_num,
                                                        kernel_size=(1, 1),
-                                                       kernel_regularizer=tf.keras.regularizers.l2(l2),
+#                                                       kernel_regularizer=tf.keras.regularizers.l2(l2),
                                                        strides=stride))
             self.downsample.add(tf.keras.layers.BatchNormalization())
         else:
