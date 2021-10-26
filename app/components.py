@@ -6,16 +6,17 @@ from tensorflow.keras.layers import Dense, BatchNormalization,Dropout, LeakyReLU
 from app.contrib import ResNetTypeX
 
 class Encoder(ResNetTypeX):
-    def __init__(self):
-        super(Encoder, self).__init__([2, 2, 2, 2 ,2,2]) #RESNET18 ResNetTypeI
+    def __init__(self, l2=0.01):
+        super(Encoder, self).__init__([2, 2, 2, 2 ,2,2], l2) #RESNET18 ResNetTypeI
+
 #        super(Encoder, self).__init__([3, 4, 6, 3]) #RESNET50 ResNetTypeII
 
 class Predictor(Model):
-    def __init__(self):
+    def __init__(self,l2=0.01):
         super(Predictor, self).__init__()
         initializer = initializers.HeNormal()
         self.Dense1 = Dense(16, activation='relu', 
-                                    kernel_regularizer=tf.keras.regularizers.l2(0.01),                                    
+                                    kernel_regularizer=tf.keras.regularizers.l2(l2),                                    
                                     kernel_initializer=initializer)
         self.bn1 = BatchNormalization()
         self.leaky = LeakyReLU(alpha=0.2)
@@ -31,12 +32,12 @@ class Predictor(Model):
         return x
 
 class Discriminator(Model):
-    def __init__(self):
+    def __init__(self, l2=0.01):
         super(Discriminator, self).__init__()
         initializer = tf.keras.initializers.HeNormal()
 
         self.Dense1 = Dense(16, activation='relu', 
-                                    kernel_regularizer=tf.keras.regularizers.l2(0.01),                                    
+                                    kernel_regularizer=tf.keras.regularizers.l2(l2),                                    
                                     kernel_initializer=initializer)
         self.bn1 = BatchNormalization()
         self.leaky = LeakyReLU(alpha=0.2)
