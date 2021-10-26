@@ -136,7 +136,7 @@ class ResNetTypeI(tf.keras.Model):
 
 class ResNetType0(tf.keras.Model):
     def __init__(self, layer_params):
-        super(ResNetTypeI, self).__init__()
+        super(ResNetType0, self).__init__()
 
 
         self.layer1 = make_basic_block_layer(filter_num=8,
