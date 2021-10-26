@@ -170,7 +170,7 @@ class ResNetTypeX(tf.keras.Model): #Custom added type
         # input 64 * 8192 * 1
         self.layer1 = make_basic_block_layer(filter_num=8,
                                              blocks=layer_params[0], 
-                                             stride=2, kernel_size= (3,3))
+                                             stride=2, kernel_size= (5,5))
         self.layer2 = make_basic_block_layer(filter_num=16,
                                              blocks=layer_params[1],
                                              stride=2, kernel_size=(3,3))
