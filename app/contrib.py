@@ -163,6 +163,42 @@ class ResNetType0(tf.keras.Model):
         output = self.Flatten(x)
         return output
 
+class ResNetTypeX(tf.keras.Model): #Custom added type
+    def __init__(self, layer_params):
+        super(ResNetType0, self).__init__()
+
+        # input 64 * 8192 * 1
+        self.layer1 = make_basic_block_layer(filter_num=8,
+                                             blocks=layer_params[0], 
+                                             stride=2, kernel_size= (3,3))
+        self.layer2 = make_basic_block_layer(filter_num=16,
+                                             blocks=layer_params[1],
+                                             stride=2, kernel_size=(3,3))
+        self.layer3 = make_basic_block_layer(filter_num=32,
+                                             blocks=layer_params[2],
+                                             stride=2, kernel_size=(3,3))
+        self.layer4 = make_basic_block_layer(filter_num=64,
+                                             blocks=layer_params[3],
+                                             stride=2, kernel_size=(3,3))
+        self.layer4 = make_basic_block_layer(filter_num=128,
+                                             blocks=layer_params[4],
+                                             stride=2, kernel_size=(3,3))
+        self.layer4 = make_basic_block_layer(filter_num=256,
+                                             blocks=layer_params[4],
+                                             stride=2, kernel_size=(3,3))
+        # output 1 * 128 * 256
+        self.avgpool = tf.keras.layers.GlobalAveragePooling2D()
+        self.Flatten = Flatten()
+
+    def call(self, inputs, training=None, mask=None):
+        x = self.layer1(inputs, training=training)
+        x = self.layer2(x, training=training)
+        x = self.layer3(x, training=training)
+        x = self.layer4(x, training=training)
+        x = self.avgpool(x)
+        output = self.Flatten(x)
+        return output
+
 
 class ResNetTypeII(tf.keras.Model):
     def __init__(self, layer_params):
