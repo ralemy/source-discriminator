@@ -80,10 +80,10 @@ class BottleNeck(Layer):
 
 def make_basic_block_layer(filter_num, blocks, stride=1, kernel_size=(3,3), l2=0.01):
     res_block = tf.keras.Sequential()
-    res_block.add(BasicBlock(filter_num, stride=stride, kernel_size=kernel_size), l2)
+    res_block.add(BasicBlock(filter_num, stride=stride, kernel_size=kernel_size, l2=l2))
 
     for _ in range(1, blocks):
-        res_block.add(BasicBlock(filter_num, stride=1, kernel_size=kernel_size), l2)
+        res_block.add(BasicBlock(filter_num, stride=1, kernel_size=kernel_size, l2=l2))
 
     return res_block
 
