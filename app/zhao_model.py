@@ -41,7 +41,7 @@ class ZhaoModel:
         self.refresh_data = False if 'refresh_data' not in options else options ['refresh_data'].upper() == 'TRUE'
         self.set_name = 'source_discrimator' if 'set_name' not in options else options['set_name']
         self.feature_set = self.get_feature_set(training)
-        self.encoder = Encoder(self.l2)
+        self.encoder = Encoder()
         self.discriminator = Discriminator(self.l2)
         self.predictor = Predictor(self.l2)
         self.loss_obj = losses.BinaryCrossentropy(reduction=losses.Reduction.SUM_OVER_BATCH_SIZE) 

@@ -6,8 +6,8 @@ from tensorflow.keras.layers import Dense, BatchNormalization,Dropout, LeakyReLU
 from app.contrib import ResNetTypeX
 
 class Encoder(ResNetTypeX):
-    def __init__(self, l2=0.01):
-        super(Encoder, self).__init__([2, 2, 2, 2 ,2,2], l2) #RESNET18 ResNetTypeI
+    def __init__(self):
+        super(Encoder, self).__init__([2, 2, 2, 2 ,2,2]) #RESNET18 ResNetTypeI
 
 #        super(Encoder, self).__init__([3, 4, 6, 3]) #RESNET50 ResNetTypeII
 
