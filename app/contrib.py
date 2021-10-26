@@ -7,15 +7,15 @@ from tensorflow.keras.layers import Conv2D, BatchNormalization, MaxPool2D, Globa
 
 class BasicBlock(tf.keras.layers.Layer):
 
-    def __init__(self, filter_num, stride=1):
+    def __init__(self, filter_num, stride=1, kernel_size = (3,3), ):
         super(BasicBlock, self).__init__()
         self.conv1 = tf.keras.layers.Conv2D(filters=filter_num,
-                                            kernel_size=(3, 3),
+                                            kernel_size=kernel_size,
                                             strides=stride,
                                             padding="same")
         self.bn1 = tf.keras.layers.BatchNormalization()
         self.conv2 = tf.keras.layers.Conv2D(filters=filter_num,
-                                            kernel_size=(3, 3),
+                                            kernel_size=kernel_size,
                                             strides=1,
                                             padding="same")
         self.bn2 = tf.keras.layers.BatchNormalization()
@@ -75,12 +75,12 @@ class BottleNeck(Layer):
 
         return output
 
-def make_basic_block_layer(filter_num, blocks, stride=1):
+def make_basic_block_layer(filter_num, blocks, stride=1, kernel_size=(3,3)):
     res_block = tf.keras.Sequential()
-    res_block.add(BasicBlock(filter_num, stride=stride))
+    res_block.add(BasicBlock(filter_num, stride=stride, kernel_size=kernel_size))
 
     for _ in range(1, blocks):
-        res_block.add(BasicBlock(filter_num, stride=1))
+        res_block.add(BasicBlock(filter_num, stride=1, kernel_size=kernel_size))
 
     return res_block
 
@@ -133,6 +133,36 @@ class ResNetTypeI(tf.keras.Model):
         x = self.avgpool(x)
         output = self.Flatten(x)
         return output
+
+class ResNetType0(tf.keras.Model):
+    def __init__(self, layer_params):
+        super(ResNetTypeI, self).__init__()
+
+
+        self.layer1 = make_basic_block_layer(filter_num=8,
+                                             blocks=layer_params[0], kernel_size= (12,12))
+        self.layer2 = make_basic_block_layer(filter_num=16,
+                                             blocks=layer_params[1],
+                                             stride=2, kernel_size=(6,6))
+        self.layer3 = make_basic_block_layer(filter_num=32,
+                                             blocks=layer_params[2],
+                                             stride=2, kernel_size=(6,6))
+        self.layer4 = make_basic_block_layer(filter_num=32,
+                                             blocks=layer_params[3],
+                                             stride=2, kernel_size=(3,3))
+
+        self.avgpool = tf.keras.layers.GlobalAveragePooling2D()
+        self.Flatten = Flatten()
+
+    def call(self, inputs, training=None, mask=None):
+        x = self.layer1(inputs, training=training)
+        x = self.layer2(x, training=training)
+        x = self.layer3(x, training=training)
+        x = self.layer4(x, training=training)
+        x = self.avgpool(x)
+        output = self.Flatten(x)
+        return output
+
 
 class ResNetTypeII(tf.keras.Model):
     def __init__(self, layer_params):
