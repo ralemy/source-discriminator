@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow.keras import initializers, Model
 from tensorflow.keras.layers import Dense, BatchNormalization,Dropout, LeakyReLU
 
-from app.contrib import ResNetType0
+from app.contrib import ResNetTypeX
 
 class Encoder(ResNetTypeX):
     def __init__(self):
