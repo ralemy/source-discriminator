@@ -3,9 +3,9 @@ import tensorflow as tf
 from tensorflow.keras import initializers, Model
 from tensorflow.keras.layers import Dense, BatchNormalization,Dropout, LeakyReLU
 
-from app.contrib import ResNetTypeI
+from app.contrib import ResNetType0
 
-class Encoder(ResNetTypeI):
+class Encoder(ResNetType0):
     def __init__(self):
         super(Encoder, self).__init__([2, 2, 2, 2]) #RESNET18 ResNetTypeI
 #        super(Encoder, self).__init__([3, 4, 6, 3]) #RESNET50 ResNetTypeII
@@ -14,7 +14,8 @@ class Predictor(Model):
     def __init__(self):
         super(Predictor, self).__init__()
         initializer = initializers.HeNormal()
-        self.Dense1 = Dense(16, activation='linear', 
+        self.Dense1 = Dense(16, activation='relu', 
+                                    kernel_regularizer=tf.keras.regularizers.l2(0.01),                                    
                                     kernel_initializer=initializer)
         self.bn1 = BatchNormalization()
         self.leaky = LeakyReLU(alpha=0.2)
@@ -34,7 +35,8 @@ class Discriminator(Model):
         super(Discriminator, self).__init__()
         initializer = tf.keras.initializers.HeNormal()
 
-        self.Dense1 = Dense(16, activation='linear', 
+        self.Dense1 = Dense(16, activation='relu', 
+                                    kernel_regularizer=tf.keras.regularizers.l2(0.01),                                    
                                     kernel_initializer=initializer)
         self.bn1 = BatchNormalization()
         self.leaky = LeakyReLU(alpha=0.2)
