@@ -6,7 +6,7 @@ def loggable(cls):
         if hasattr(self, 'silent') and self.silent: 
             return 
         print(datetime.now(), self.__class__.__name__, *args)
-    def error(self,args):
+    def error(self,*args):
         print(datetime.now(), self.__class__.__name__, *args, file=sys.stderr)
     def debug(self, *args):
         print('=' * 30)
