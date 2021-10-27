@@ -5,14 +5,13 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 import os
-from datetime import datetime
 from app.utils import loggable
 
 @loggable
 class Plotter:
     def __init__(self, options) -> None:
         plot_path = '../plots' if 'plot_path' not in options else options['plot_path']
-        self.session_id = datetime.now().strftime('%Y-%m-%d_%H_%M_%s')
+        self.session_id = options['sessionId']
         self.plot_path = os.path.join(plot_path, self.session_id)
         self.df = None
 

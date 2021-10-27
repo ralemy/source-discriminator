@@ -3,7 +3,7 @@ import os
 import tensorflow as tf
 
 class TensorMetrics:
-    def __init__(self, loss_metric, accuracy_metric, log_path) -> None:
+    def __init__(self, loss_metric, accuracy_metric, log_path, sessionId) -> None:
         self.metrics = {
             'loss': {
                 'test': loss_metric(name = 'test_loss'),
@@ -16,13 +16,12 @@ class TensorMetrics:
                 'global': accuracy_metric(name = 'global_acc')
             }
         }
-        current_time = datetime.now().strftime("%Y%m%d-%H%M%S")
-        log_base = os.path.join(log_path, current_time)
-        os.mkdir(log_base)
+        self.log_base = os.path.join(log_path, sessionId)
+        os.mkdir(self.log_base)
         self.summary_writer = {
-            'train': tf.summary.create_file_writer(os.path.join(log_base,  'train')),
-            'test': tf.summary.create_file_writer(os.path.join(log_base,  'test')),
-            'global': tf.summary.create_file_writer(os.path.join(log_base, 'global'))
+            'train': tf.summary.create_file_writer(os.path.join(self.log_base,  'train')),
+            'test': tf.summary.create_file_writer(os.path.join(self.log_base,  'test')),
+            'global': tf.summary.create_file_writer(os.path.join(self.log_base, 'global'))
         }
 
     def reset_epoch_metrics(self):

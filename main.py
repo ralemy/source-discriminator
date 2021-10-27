@@ -8,8 +8,12 @@
 
 import argparse
 import configparser
+
+import pickle
 from app.zhao_model import ZhaoModel
 from app.plot import Plotter
+from app.utils import generate_session_id
+import os
 
 def init_args():
     parser = argparse.ArgumentParser()
@@ -29,17 +33,27 @@ def report_metrics(metrics, options):
     plotter = Plotter(options)
     plotter.plot_components(metrics['Encodings']['output'], metrics['Encodings']['labels'])
     
-
+def save_info(options, metrics, tensor_log):
+    base = os.path.join(options['history_path'], options['sessionId'])
+    metrics['tensorboard'] = tensor_log
+    with open(os.path.join(base, 'options.pkl'), 'wb') as f:
+        pickle.dump(options, f)
+    with open(os.path.join(base, 'metrics.pkl'), 'wb') as f:
+        pickle.dump(metrics, f)
+    pass
 
 if __name__=='__main__':
     parser = init_args()
     args = parser.parse_args()
     config = read_config(args.config, args.action.upper())
     options = {k:config[k] for k in config}
+    options['sessionId']= generate_session_id()
     if args.action.upper() == 'TRAIN':
         model = ZhaoModel(options)
+        model.error('Starting to Train. Tensorboard can be found in:', model.tmetrics.log_base)
         metrics = model.train(0.8, 0.1, 0.1)
         report_metrics(metrics, options)
+        save_info(options, metrics, model.tmetrics.log_base)
         model.log('training complete')
     elif args.action.upper() == 'PREDICT':
         model = ZhaoModel(options)

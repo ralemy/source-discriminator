@@ -1,11 +1,9 @@
-from functools import reduce
 import numpy as np
 import tensorflow as tf
 import os
 from tensorflow.keras import optimizers, metrics, losses
-from tensorflow.python.keras.backend import update
 
-from app.utils import loggable, generate_session_id
+from app.utils import loggable
 from app.feature_engineer import FeatureEngineer, Role
 from app.components import Encoder, Predictor, Discriminator
 from app.tensor_metrics import TensorMetrics
@@ -40,6 +38,7 @@ class ZhaoModel:
         self.batch_size = 32 if 'batch_size' not in options else int(options['batch_size'])
         self.refresh_data = False if 'refresh_data' not in options else options ['refresh_data'].upper() == 'TRUE'
         self.set_name = 'source_discrimator' if 'set_name' not in options else options['set_name']
+        self.sessionId = options['sessionId']
         self.feature_set = self.get_feature_set(training)
         self.encoder = Encoder()
         self.discriminator = Discriminator(self.l2)
@@ -48,7 +47,7 @@ class ZhaoModel:
         self.optimizer = optimizers.Adam(learning_rate=self.learning_rate_fn())
         self.checkpoint=tf.train.Checkpoint(encoder=self.encoder, predictor=self.predictor)
         self.h_subject = None # H(s) required by inner loop. will be calculated in training
-        self.tmetrics = TensorMetrics(metrics.Mean, metrics.BinaryAccuracy, self.log_path)
+        self.tmetrics = TensorMetrics(metrics.Mean, metrics.BinaryAccuracy, self.log_path, self.sessionId)
 
     def predict(self):
         df = self.feature_set.get_data_set(Role.PREDICT)
@@ -57,7 +56,7 @@ class ZhaoModel:
         self.log('predicting labels')
         predictions= self.test_step(self.feature_set.get_matrix(df), None, False)
         df['Predictions'] = predictions
-        output = os.path.join(self.pred_path, generate_session_id(), 'model_predictions.pickle')
+        output = os.path.join(self.pred_path, self.sessionId, 'model_predictions.pickle')
         self.log('saving predictions in', output)
         df.drop('Matrix').to_csv(output, sep=',')
         return predictions
@@ -171,6 +170,8 @@ class ZhaoModel:
                 self.log('Best Accuracy so far', max_acc)
             else:
                 self.log('accuracy', epoch_acc, 'best_accuracy', max_acc)
+            if os.path.isfile('./stop_epochs'):
+                break
     
     # Here starts the implementation of the alogorithm
     #  Matched to Algorithm on page 6 reference article
