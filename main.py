@@ -38,6 +38,7 @@ def get_git_revision_hash() -> str:
 
 def save_info(options, metrics, tensor_log):
     base = os.path.join(options['history_path'], options['sessionId'])
+    os.mkdir(base)
     metrics['tensorboard'] = tensor_log
     metrics['githash'] = get_git_revision_hash()
     with open(os.path.join(base, 'options.pkl'), 'wb') as f:
