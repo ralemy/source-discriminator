@@ -19,6 +19,6 @@ def loggable(cls):
 INDEV = True
 
 def generate_session_id():
-    return datetime.now().strftime('%Y-%m-%d_%H_%M_%s')
+    return datetime.now().strftime('%Y-%m-%d_%H_%M_%s')[:19]
 
 
