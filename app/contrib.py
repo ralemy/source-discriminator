@@ -186,12 +186,12 @@ class ResNetTypeX(tf.keras.Model): #Custom added type
         self.layer4 = make_basic_block_layer(filter_num=64,
                                              blocks=layer_params[3],
                                              stride=2, kernel_size=(3,3))
-        self.layer4 = make_basic_block_layer(filter_num=128,
+        self.layer5 = make_basic_block_layer(filter_num=128,
                                              blocks=layer_params[4],
                                              stride=2, kernel_size=(3,3))
-        self.layer4 = make_basic_block_layer(filter_num=256,
-                                             blocks=layer_params[5],
-                                             stride=1, kernel_size=(3,3))
+        # self.layer6 = make_basic_block_layer(filter_num=256,
+        #                                      blocks=layer_params[5],
+        #                                      stride=2, kernel_size=(3,3))
 
         self.avgpool = tf.keras.layers.GlobalAveragePooling2D()
         self.Flatten = Flatten()
@@ -205,6 +205,8 @@ class ResNetTypeX(tf.keras.Model): #Custom added type
         x = self.layer2(x, training=training)
         x = self.layer3(x, training=training)
         x = self.layer4(x, training=training)
+        x = self.layer5(x, training=training)
+        # x = self.layer6(x, training=training)
         x = self.avgpool(x)
         output = self.Flatten(x)
         return output
