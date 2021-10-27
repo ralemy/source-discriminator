@@ -201,7 +201,7 @@ class ResNetTypeX(tf.keras.Model): #Custom added type
         x = self.bn1(x, training=training)
         x = tf.nn.relu(x)
         x = self.pool1(x)
-        x = self.layer1(inputs, training=training)
+        x = self.layer1(x, training=training)
         x = self.layer2(x, training=training)
         x = self.layer3(x, training=training)
         x = self.layer4(x, training=training)
