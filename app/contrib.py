@@ -170,9 +170,9 @@ class ResNetTypeX(tf.keras.Model): #Custom added type
     def __init__(self, layer_params):
         super(ResNetTypeX, self).__init__()
         # input 64 * 8192 * 1
-        self.conv1 = Conv2D(filters=64, kernel_size=(9, 9), strides=2, padding="same")
+        self.conv1 = Conv2D(filters=64, kernel_size=(9, 9), strides=1, padding="same")
         self.bn1 = BatchNormalization()
-        self.pool1 = MaxPool2D(pool_size=(3, 3), strides=2, padding="same")
+        self.pool1 = MaxPool2D(pool_size=(3, 3), strides=1, padding="same")
 
         self.layer1 = make_basic_block_layer(filter_num=8,
                                              blocks=layer_params[0], 
