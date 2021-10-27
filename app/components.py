@@ -46,8 +46,8 @@ class Discriminator(Model):
 
     def call(self, inputs, training = None, **kwargs):
         x = self.Dense1(inputs)
-        x = self.bn1(x)
-        x = self.leaky(x)
+#        x = self.bn1(x)
+#        x = self.leaky(x)
         x = self.dropout(x)
         x = self.Dense2(x)
         return x
