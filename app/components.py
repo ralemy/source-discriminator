@@ -18,15 +18,15 @@ class Predictor(Model):
         self.Dense1 = Dense(16, activation='relu', 
                                     kernel_regularizer=tf.keras.regularizers.l2(l2),                                    
                                     kernel_initializer=initializer)
-#        self.bn1 = BatchNormalization()
-#        self.leaky = LeakyReLU(alpha=0.2)
-        self.dropout = Dropout(0.35)
+        self.bn1 = BatchNormalization()
+        self.leaky = LeakyReLU(alpha=0.2)
+        self.dropout = Dropout(0.3)
         self.Dense2 = Dense(1, activation='sigmoid')
 
     def call(self, inputs, training = None, **kwargs):
         x = self.Dense1(inputs)
- #       x = self.bn1(x)
- #       x = self.leaky(x)
+        x = self.bn1(x)
+        x = self.leaky(x)
         x = self.dropout(x)
         x = self.Dense2(x)
         return x
@@ -39,15 +39,15 @@ class Discriminator(Model):
         self.Dense1 = Dense(16, activation='relu', 
                                     kernel_regularizer=tf.keras.regularizers.l2(l2),                                    
                                     kernel_initializer=initializer)
- #       self.bn1 = BatchNormalization()
- #       self.leaky = LeakyReLU(alpha=0.2)
-        self.dropout = Dropout(0.35)
+        self.bn1 = BatchNormalization()
+        self.leaky = LeakyReLU(alpha=0.2)
+        self.dropout = Dropout(0.3)
         self.Dense2 = Dense(1, activation='sigmoid')
 
     def call(self, inputs, training = None, **kwargs):
         x = self.Dense1(inputs)
-#        x = self.bn1(x)
-#        x = self.leaky(x)
+        x = self.bn1(x)
+        x = self.leaky(x)
         x = self.dropout(x)
         x = self.Dense2(x)
         return x
