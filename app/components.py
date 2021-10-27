@@ -8,7 +8,6 @@ from app.contrib import ResNetType0
 class Encoder(ResNetType0):
     def __init__(self):
         super(Encoder, self).__init__([2, 2, 2, 2 ,2,2]) #RESNET18 ResNetTypeI
-
 #        super(Encoder, self).__init__([3, 4, 6, 3]) #RESNET50 ResNetTypeII
 
 class Predictor(Model):

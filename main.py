@@ -8,7 +8,7 @@
 
 import argparse
 import configparser
-
+import subprocess
 import pickle
 from app.zhao_model import ZhaoModel
 from app.plot import Plotter
@@ -33,9 +33,13 @@ def report_metrics(metrics, options):
     plotter = Plotter(options)
     plotter.plot_components(metrics['Encodings']['output'], metrics['Encodings']['labels'])
     
+def get_git_revision_hash() -> str:
+    return subprocess.check_output(['git', 'rev-parse', 'HEAD']).decode('ascii').strip()
+
 def save_info(options, metrics, tensor_log):
     base = os.path.join(options['history_path'], options['sessionId'])
     metrics['tensorboard'] = tensor_log
+    metrics['githash'] = get_git_revision_hash()
     with open(os.path.join(base, 'options.pkl'), 'wb') as f:
         pickle.dump(options, f)
     with open(os.path.join(base, 'metrics.pkl'), 'wb') as f:
